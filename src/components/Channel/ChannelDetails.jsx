@@ -108,7 +108,7 @@ const ChannelDetails = () => {
               className={`max-w-[540px]  text-left text-sm ${styles.centerX}`}
               onClick={(e) => aboutButton.current?.scrollIntoView()}
             >
-              {description.split(",", 1).join(",") + "..."}
+              {description.split(" ", 10).join(",") + "..."}
               <span className="text-2xl text-slate-500">
                 <BiChevronRight />
               </span>
