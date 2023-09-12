@@ -24,7 +24,8 @@ const ChannelAbout = () => {
   console.log(data);
   return (
     <div className="grid gap-x-[10%] gap-y-3 sm:grid-cols-2" id="About">
-      <div className="flex flex-col gap-6 border-b border-b-slate-200  py-4 text-slate-700">
+      {
+        description || country ?  <div className="flex flex-col gap-6 border-b border-b-slate-200  py-4 text-slate-700">
         {description && (
           <div className="flex flex-col gap-6 ">
             <h3> Description : </h3>
@@ -40,7 +41,8 @@ const ChannelAbout = () => {
             </h4>
           </div>
         )}
-      </div>
+      </div> : ''
+      }
 
       {/* stats */}
       <div className="flex flex-col gap-1 text-slate-600">
