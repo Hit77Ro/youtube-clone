@@ -10,10 +10,10 @@ const Videos = ({ medias }) => {
   if (medias.length <= 0) return <Loader />;
   return (
     <div
-      className={` grid gap-5 py-5 ${styles.paddingX} 
+      className={` grid gap-5
       ${
         isSearchMode
-          ? "grid-cols-1 xl:mx-auto xl:max-w-[50%] "
+          ? "grid-cols-1 xl:mx-auto "
           : " xs:grid-cols-[repeat(auto-fit,minmax(270px,1fr))] "
       }
         `}

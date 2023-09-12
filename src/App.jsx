@@ -20,13 +20,15 @@ import {
 import ChannelCommunity from "./components/Channel/ChannelCommunity";
 
 const App = () => {
-  const { isSidebarOpen } = useStore();
+  const { isSidebarOpen, isSearchMode } = useStore();
   return (
     <Router>
       <div
-        className={`mx-auto  pt-[70px]  transition-all max-w-[1450px] ${
+        className={` pt-[100px]  transition-[0.5s] xs:px-5 ${
           isSidebarOpen ? "md:ml-[240px]" : ""
-        }`}
+        } 
+          ${isSearchMode ? "container" : ""} 
+        `}
       >
         <div
           className={`lg:hidden  ${isSidebarOpen ? "overlay active" : ""}`}

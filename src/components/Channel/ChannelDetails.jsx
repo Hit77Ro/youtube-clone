@@ -72,7 +72,7 @@ const ChannelDetails = () => {
     );
   };
   return (
-    <div className={`min-h-screen ${styles.paddingX}`}>
+    <div className={`min-h-screen `}>
       {meta.banner.length >= 0 && (
         <div className="flex h-[100px] overflow-hidden rounded-md lg:h-[300px]">
           <img
@@ -89,7 +89,7 @@ const ChannelDetails = () => {
           />
         </div>
       )}
-      <div className={`${styles.paddingX}`}>
+      <div className={``}>
         <div className={`mt-[40px]  flex  flex-col items-center sm:flex-row`}>
           <div
             className={` max-w-[80px] overflow-hidden rounded-full md:max-w-[100px]  ${styles.flexCenter}`}

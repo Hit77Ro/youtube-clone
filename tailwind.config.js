@@ -11,6 +11,9 @@ export default {
         primary: "#FFFFFF",
         gray: "#F2F2F2",
       },
+      container: {
+        center: true,
+      } ,
       screens: {
         xs: "480px",
         sm: "640px",

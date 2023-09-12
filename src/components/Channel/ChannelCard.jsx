@@ -16,14 +16,14 @@ const ChannelCard = ({ item }) => {
   return (
     <Link
       to={`/channel/${channelId}`}
-      className={`grid gap-6 p-3 shadow-sm transition-all hover:shadow-md md:max-h-fit ${
+      className={`grid max-w-[800px] gap-6  p-3 mx-auto transition-all  md:max-h-fit ${
         isSearchMode ? "sm:grid-cols-2" : ""
       } `}
     >
       <div className={`overflow-hidden rounded-full ${styles.flexCenter}`}>
         <img
           src={"https:" + url2 || url1}
-          className=" aspect-square max-w-[200px] rounded-full"
+          className=" max-w-[120px] max-h-[120px] rounded-full"
           alt="channel image"
         />
       </div>

@@ -41,6 +41,7 @@ const VideoCard = ({ item }) => {
       </Link>
     );
   };
+  console.log(item);
   const Img = () => (
     <Link
       to={`/channel/${channelId}`}
@@ -51,22 +52,29 @@ const VideoCard = ({ item }) => {
   );
   return (
     <div
-      className={`flex flex-col   overflow-hidden rounded-xl shadow-md  ${
-        isSearchMode ? "gap-x-10  md:max-h-fit" : ""
+      className={`grid   overflow-hidden rounded-xl  ${
+        isSearchMode
+          ? "  mx-auto max-h-[250px] max-w-[800px] grid-cols-2  grid-rows-[1fr] gap-4"
+          : "shadow-md "
       }`}
     >
       {/* image */}
-      <Link to={`/watch/${videoId}`} className={`block basis-2/4 `}>
-        <div className="relative  w-full overflow-hidden ">
-          <img src={url2 || url1} alt={title} />
-          <span className="absolute bottom-1 right-1 rounded-md bg-black px-2 py-1 text-xs text-white ">
-            {" "}
-            {lengthText}{" "}
-          </span>
-        </div>
+      <Link
+        to={`/watch/${videoId}`}
+        className={` relative max-w-[400px] overflow-hidden`}
+      >
+        <img
+          src={url2 || url1}
+          alt={title}
+          className={`${isSearchMode && "rounded-xl"}`}
+        />
+        <span className="absolute bottom-1 right-1 rounded-md bg-black px-2 py-1 text-xs text-white ">
+          {" "}
+          {lengthText}{" "}
+        </span>
       </Link>
       {/* content start */}
-      <div className="basis-2/4 py-2 pl-1">
+      <div className="py-2 pl-1">
         <div className={`${styles.centerX} gap-2`}>
           {!isSearchMode && <Img />}
           <Link to={`/watch/${videoId}`}>
@@ -79,7 +87,7 @@ const VideoCard = ({ item }) => {
           </Link>
         </div>
 
-        <div className=" flex flex-col px-4 text-[15px] text-slate-700">
+        <div className=" flex flex-col text-[15px] text-slate-700">
           {/* todo reverse when searchmode */}
           <div
             className={`flex text-[13px] text-slate-600 sm:text-sm  ${
@@ -99,10 +107,9 @@ const VideoCard = ({ item }) => {
               <span title={publishDate}> {publishedTimeText} </span>
             </div>
           </div>
-          {isSearchMode && (
-            <p title="from description" className="mt-7 text-[12px]">
-              {" "}
-              {description}{" "}
+          {isSearchMode && description && (
+            <p title="from description" className="mt-2 text-xs md:text-sm">
+              {description.split(" ", 5).join(" ") + "..."}
             </p>
           )}
         </div>

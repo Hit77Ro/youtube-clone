@@ -33,7 +33,7 @@ const Navbar = () => {
   }, [inputToggler]);
   return (
     <nav
-      className={` fixed inset-0 z-10 bg-white ${styles.centerX}  h-[70px] w-full   justify-between  shadow-md ${styles.paddingX}`}
+      className={` fixed inset-0 z-10 bg-white ${styles.centerX}  h-[70px] w-full   justify-between ${styles.paddingX}`}
     >
       {!inputToggler && <Logo />}
       <div className={`${styles.centerX}  flex-1  justify-center`}>

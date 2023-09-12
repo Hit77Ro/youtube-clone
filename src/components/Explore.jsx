@@ -14,7 +14,7 @@ const Explore = () => {
     });
   }, [category]);
   return (
-    <div className={`py-10 ${styles.paddingX}`}>
+    <div className={`py-10`}>
       <h1 className="mb-10  text-[30px] font-extrabold capitalize sm:text-[40px]">
         {" "}
         explore
