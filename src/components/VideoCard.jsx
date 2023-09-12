@@ -8,7 +8,7 @@ import styles from "../style";
 const VideoCard = ({ item }) => {
   const { isSearchMode } = useStore();
   if (!item || !item.channelThumbnail) {
-    return ''
+    return "";
   }
   const {
     videoId,
@@ -44,13 +44,17 @@ const VideoCard = ({ item }) => {
   return (
     <div
       className={` grid grid-rows-[1fr,auto] overflow-hidden rounded-xl shadow-md  transition-all hover:shadow-xl  ${
-        isSearchMode ? "gap-x-10 sm:grid-cols-2 md:max-h-fit" : ""
+        isSearchMode ? "gap-x-10 xs:grid-cols-2 md:max-h-fit" : ""
       }`}
     >
       {/* image */}
-      <Link to={`/watch/${videoId}`} className={`flex flex-1 shrink-0 `}>
-        <div className="relative w-full  flex-1 overflow-hidden">
-          <img src={url2 || url1} alt={title} className=" h-[240px] w-full" />
+      <Link to={`/watch/${videoId}`} className={`block`}>
+        <div className="relative   w-full  overflow-hidden ">
+          <img
+            src={url2 || url1}
+            alt={title}
+            className="  block h-full w-full "
+          />
           <span className="absolute bottom-1 right-1 rounded-md bg-black px-2 py-1 text-xs text-white">
             {" "}
             {lengthText}{" "}
@@ -58,12 +62,12 @@ const VideoCard = ({ item }) => {
         </div>
       </Link>
       {/* content start */}
-      <div className="p-4">
-        <div className="flex  gap-4">
+      <div className="py-2">
+        <div className="flex  gap-2">
           {!isSearchMode && (
             <Link
               to={`/channel/${channelId}`}
-              className={` block h-[40px]  w-[40px] shrink-0 self-start  overflow-hidden  rounded-full ${styles.flexCenter}`}
+              className={` block h-[30px]  w-[30px] shrink-0  self-start overflow-hidden rounded-full  xs:h-[40px]  xs:w-[40px] ${styles.flexCenter}`}
             >
               <img src={url} alt="channelAvatar" />
             </Link>
@@ -71,7 +75,7 @@ const VideoCard = ({ item }) => {
 
           <div className=" flex flex-col text-[15px] text-slate-700">
             <Link to={`/watch/${videoId}`}>
-              <h3 title={title}>
+              <h3 title={title} className="text-sm">
                 {" "}
                 {title.split(" ").length <= 10
                   ? title
@@ -80,7 +84,7 @@ const VideoCard = ({ item }) => {
             </Link>
             {/* todo reverse when searchmode */}
             <div
-              className={`flex text-sm text-slate-600 ${
+              className={`flex text-xs text-slate-600 ${
                 isSearchMode ? "flex-col-reverse" : "flex-col"
               }`}
             >

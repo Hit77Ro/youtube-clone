@@ -24,7 +24,7 @@ const App = () => {
   return (
     <Router>
       <div
-        className={`pt-[70px] transition-all w-[90%]  md:w-[85%] lg:w-[80%] mx-auto ${
+        className={`mx-auto  pt-[70px]  transition-all max-w-[1450px] ${
           isSidebarOpen ? "md:ml-[240px]" : ""
         }`}
       >
