@@ -41,74 +41,70 @@ const VideoCard = ({ item }) => {
       </Link>
     );
   };
+  const Img = () => (
+    <Link
+      to={`/channel/${channelId}`}
+      className={` block h-[25px]  w-[25px] shrink-0  self-start overflow-hidden rounded-full  xs:h-[30px]  xs:w-[30px] ${styles.flexCenter}`}
+    >
+      <img src={url} className="object-contain" alt="channelAvatar" />
+    </Link>
+  );
   return (
     <div
-      className={` grid grid-rows-[1fr,auto] overflow-hidden rounded-xl shadow-md  transition-all hover:shadow-xl  ${
-        isSearchMode ? "gap-x-10 xs:grid-cols-2 md:max-h-fit" : ""
+      className={`flex flex-col  max-w-[300px] mx-auto  overflow-hidden rounded-xl shadow-md  ${
+        isSearchMode ? "gap-x-10  md:max-h-fit" : ""
       }`}
     >
       {/* image */}
-      <Link to={`/watch/${videoId}`} className={`block`}>
-        <div className="relative   w-full  overflow-hidden ">
-          <img
-            src={url2 || url1}
-            alt={title}
-            className="  block h-full w-full "
-          />
-          <span className="absolute bottom-1 right-1 rounded-md bg-black px-2 py-1 text-xs text-white">
+      <Link to={`/watch/${videoId}`} className={`block basis-2/4 `}>
+        <div className="relative  w-full overflow-hidden ">
+          <img src={url2 || url1} alt={title} />
+          <span className="absolute bottom-1 right-1 rounded-md bg-black px-2 py-1 text-xs text-white ">
             {" "}
             {lengthText}{" "}
           </span>
         </div>
       </Link>
       {/* content start */}
-      <div className="py-2">
-        <div className="flex  gap-2">
-          {!isSearchMode && (
-            <Link
-              to={`/channel/${channelId}`}
-              className={` block h-[30px]  w-[30px] shrink-0  self-start overflow-hidden rounded-full  xs:h-[40px]  xs:w-[40px] ${styles.flexCenter}`}
-            >
-              <img src={url} alt="channelAvatar" />
-            </Link>
-          )}
+      <div className="basis-2/4 py-2 pl-1">
+        <div className={`${styles.centerX} gap-2`}>
+          {!isSearchMode && <Img />}
+          <Link to={`/watch/${videoId}`}>
+            <h3 title={title} className="md:text-md text-sm">
+              {" "}
+              {title.split(" ").length <= 10
+                ? title
+                : title.split(" ", 10).join(" ") + "..."}{" "}
+            </h3>
+          </Link>
+        </div>
 
-          <div className=" flex flex-col text-[15px] text-slate-700">
-            <Link to={`/watch/${videoId}`}>
-              <h3 title={title} className="text-sm">
+        <div className=" flex flex-col px-4 text-[15px] text-slate-700">
+          {/* todo reverse when searchmode */}
+          <div
+            className={`flex text-[13px] text-slate-600 sm:text-sm  ${
+              isSearchMode ? "flex-col-reverse" : "flex-col"
+            }`}
+          >
+            {/* channelimage */}
+            <ChannelImg searchmode={isSearchMode} />
+            <div className={`gap flex items-center`}>
+              <span className="mt-1 flex items-center gap-2 ">
+                <span title={viewCount}> {formatNumber(+viewCount)}</span> views
+              </span>
+              <span className="">
                 {" "}
-                {title.split(" ").length <= 10
-                  ? title
-                  : title.split(" ", 10).join(" ") + "..."}{" "}
-              </h3>
-            </Link>
-            {/* todo reverse when searchmode */}
-            <div
-              className={`flex text-xs text-slate-600 ${
-                isSearchMode ? "flex-col-reverse" : "flex-col"
-              }`}
-            >
-              {/* channelimage */}
-              <ChannelImg searchmode={isSearchMode} />
-              <div className={`gap flex items-center`}>
-                <span className="mt-1 flex items-center gap-2 ">
-                  <span title={viewCount}> {formatNumber(+viewCount)}</span>{" "}
-                  views
-                </span>
-                <span className="">
-                  {" "}
-                  <BsDot />{" "}
-                </span>
-                <span title={publishDate}> {publishedTimeText} </span>
-              </div>
+                <BsDot />{" "}
+              </span>
+              <span title={publishDate}> {publishedTimeText} </span>
             </div>
-            {isSearchMode && (
-              <p title="from description" className="mt-7 text-[12px]">
-                {" "}
-                {description}{" "}
-              </p>
-            )}
           </div>
+          {isSearchMode && (
+            <p title="from description" className="mt-7 text-[12px]">
+              {" "}
+              {description}{" "}
+            </p>
+          )}
         </div>
       </div>
     </div>
