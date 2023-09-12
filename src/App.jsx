@@ -21,12 +21,11 @@ import ChannelCommunity from "./components/Channel/ChannelCommunity";
 
 const App = () => {
   const { isSidebarOpen } = useStore();
+  // ${ isSidebarOpen ? "md:ml-[240px]" : ""}
   return (
     <Router>
       <div
-        className={`pt-[70px] transition-[margin,0.5s,linear] ${
-          isSidebarOpen ? "md:ml-[240px]" : ""
-        }`}
+        className={`pt-[70px] md:px-[100px] xl:px-[200px] transition-[margin,0.5s,linear]`}
       >
         <div
           className={`lg:hidden  ${isSidebarOpen ? "overlay active" : ""}`}
