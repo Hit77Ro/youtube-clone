@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Outlet, useParams } from "react-router-dom";
 import { FetchApi } from "../../utils/api";
-import styles from "../../style";
+import styles, { layout } from "../../style";
 import { BiRightArrow } from "react-icons/bi";
 import Loader from "../../utils/Loader";
 const PossibleTabs = [
@@ -15,6 +15,7 @@ const PossibleTabs = [
 import { ChannelHome } from "./index";
 import Slider, { Slide } from "../../utils/Slider";
 const ChannelDetails = () => {
+  const aboutButton = useRef();
   const [Tab, setTab] = useState();
   const [channel, setChannel] = useState();
   const { id } = useParams();
@@ -51,7 +52,7 @@ const ChannelDetails = () => {
         ? " border-red-800 bg-red-600 text-white hover:bg-red-600"
         : "border-slate-300 hover:bg-slate-200"
     } `;
-    return (
+    return el !== "About" ? (
       <NavLink
         to={`/channel/${id}${el === "Home" ? "" : "/" + el.toLowerCase()}`}
         key={el}
@@ -59,10 +60,19 @@ const ChannelDetails = () => {
       >
         {el}
       </NavLink>
+    ) : (
+        <NavLink
+        to={`/channel/${id}/about`}
+        key={el}
+          className={linkStyles}
+          ref={aboutButton}
+      >
+        {el}
+      </NavLink>
     );
   };
   return (
-    <div className={` min-h-screen ${styles.paddingX}`}>
+    <div className={`${layout.container}  min-h-screen ${styles.paddingX}`}>
       {meta.banner.length >= 0 && (
         <div className="flex h-[100px] overflow-hidden rounded-md lg:h-[300px]">
           <img
@@ -96,6 +106,7 @@ const ChannelDetails = () => {
             <Link
               to={`/channel/${id}/about`}
               className={`max-w-[540px]  text-left text-sm ${styles.centerX}`}
+              onClick={(e) => aboutButton.current?.scrollIntoView()}
             >
               {description.split(",", 1).join(",") + "..."}
               <span className="text-2xl text-slate-500">
@@ -104,21 +115,19 @@ const ChannelDetails = () => {
             </Link>
           </div>
         </div>
-        <div className="my-5 max-w-[600px] mx-auto">
+        <div className="mx-auto my-5 md:mx-0">
           <Slider>
-            <Slide responsive="xs:basis-2/6 sm:basis-3/12">
+            <Slide responsive="xs:basis-2/6 md:basis-2/12">
               <div className="px-2">
-
-              <Button el={"Home"} />
+                <Button el={"Home"} />
               </div>
             </Slide>
             {tabs.map(
               (el) =>
                 PossibleTabs.includes(el) && (
-                  <Slide responsive=" xs:basis-2/6 sm:basis-3/12">
-
-                    <div className="px-2">
-                    <Button key={el} el={el} />
+                  <Slide responsive=" xs:basis-2/6 md:basis-2/12">
+                    <div className="px-1">
+                      <Button key={el} el={el} />
                     </div>
                   </Slide>
                 ),
@@ -126,7 +135,7 @@ const ChannelDetails = () => {
           </Slider>
         </div>
 
-        <div className=" relative   min-h-[500px]  py-10">
+        <div className={` relative   min-h-[500px]  py-10`}>
           {isHome && <ChannelHome homeData={channel} />}
           <Outlet />
         </div>

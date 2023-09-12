@@ -3,6 +3,7 @@ import Loader from "../../utils/Loader";
 import useChannelFetcher from "../../utils/useChannelFetcher";
 import ChannelVideoCard from "./ChannelVideoCard";
 import { FetchApi } from "../../utils/api";
+import styles from "../../style";
 
 const ChannelVideos = () => {
   const data = useChannelFetcher("videos");
@@ -14,7 +15,7 @@ const ChannelVideos = () => {
       {videos.length <= 0 && <h1> {data.msq}</h1>}
 
       {videos.length > 0 && (
-        <div className="grid   grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-10">
+        <div className={styles.grid}>
           {videos.map((el) => (
             <div className=" " key={crypto.randomUUID()}>
               <ChannelVideoCard item={el} />
