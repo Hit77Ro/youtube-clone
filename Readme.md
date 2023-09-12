@@ -1,0 +1,5 @@
+-----> What To learn  
+-> load more button  ( api  request) ; 
+-> skeleton animation when loading data
+-> reusable compnents 
+-> React Routers
