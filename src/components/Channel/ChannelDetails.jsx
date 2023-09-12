@@ -61,11 +61,11 @@ const ChannelDetails = () => {
         {el}
       </NavLink>
     ) : (
-        <NavLink
+      <NavLink
         to={`/channel/${id}/about`}
         key={el}
-          className={linkStyles}
-          ref={aboutButton}
+        className={linkStyles}
+        ref={aboutButton}
       >
         {el}
       </NavLink>
