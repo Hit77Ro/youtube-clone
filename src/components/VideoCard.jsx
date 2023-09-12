@@ -51,7 +51,7 @@ const VideoCard = ({ item }) => {
   );
   return (
     <div
-      className={`flex flex-col  max-w-[300px] mx-auto  overflow-hidden rounded-xl shadow-md  ${
+      className={`flex flex-col   overflow-hidden rounded-xl shadow-md  ${
         isSearchMode ? "gap-x-10  md:max-h-fit" : ""
       }`}
     >
