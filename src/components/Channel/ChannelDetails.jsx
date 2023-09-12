@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Outlet, useParams } from "react-router-dom";
 import { FetchApi } from "../../utils/api";
 import styles, { layout } from "../../style";
-import { BiRightArrow } from "react-icons/bi";
+import { BiChevronRight } from "react-icons/bi";
 import Loader from "../../utils/Loader";
 const PossibleTabs = [
   "Videos",
@@ -110,7 +110,7 @@ const ChannelDetails = () => {
             >
               {description.split(",", 1).join(",") + "..."}
               <span className="text-2xl text-slate-500">
-                <BiRightArrow />
+                <BiChevronRight />
               </span>
             </Link>
           </div>
