@@ -8,6 +8,7 @@ const sliderStyles = ` scroll-smooth  overflow-scroll flex snap-x snap-mandatory
 const Slider = ({
   children,
   styling,
+  settings,
   buttonStyling = "bg-white hover:bg-slate-100",
 }) => {
   const slides = useRef();
@@ -15,13 +16,13 @@ const Slider = ({
   const [isNext, setIsNext] = useState(true);
   const [slideBy, setSlideBy] = useState(0); // Initialize to 0
 
-  const Next = () => {
-    if (isNext) {
-      slides.current.scrollLeft += slideBy;
+  const move = (type) => {
+    if (type === "next") {
+      if (isNext) {
+        slides.current.scrollLeft += slideBy;
+      }
+      return;
     }
-  };
-
-  const Prev = () => {
     if (isPrev) {
       slides.current.scrollLeft -= slideBy;
     }
@@ -34,8 +35,8 @@ const Slider = ({
         slides.current?.scrollWidth - slides.current?.clientWidth;
       setSlideBy(Math.round(slides.current?.offsetWidth));
 
-      setIsNext(_=> scrollLeft + 1 <= maxScrollLeft);
-      setIsPrev(_=> scrollLeft >= 1);
+      setIsNext((_) => scrollLeft + 1 <= maxScrollLeft);
+      setIsPrev((_) => scrollLeft >= 1);
     };
     SlideLimit();
     slides.current?.addEventListener("scroll", SlideLimit);
@@ -49,7 +50,7 @@ const Slider = ({
   return (
     <div className={` relative w-full`}>
       <button
-        onClick={Prev}
+        onClick={move}
         className={`-translate-x-2/4  ${buttonStyling} ${buttonStyles} ${
           !isPrev ? "hidden" : ""
         }`}
@@ -57,7 +58,7 @@ const Slider = ({
         <AiOutlineArrowLeft />
       </button>
       <button
-        onClick={Next}
+        onClick={()=>move("next")}
         className={`right-0 translate-x-2/4 ${buttonStyling} ${buttonStyles} ${
           !isNext ? "hidden" : ""
         } `}

@@ -5,6 +5,7 @@ import styles, { layout } from "../../style";
 import { BiChevronRight } from "react-icons/bi";
 import Loader from "../../utils/Loader";
 const PossibleTabs = [
+  "Home",
   "Videos",
   "Playlists ",
   "Community",
@@ -12,14 +13,12 @@ const PossibleTabs = [
   "Live",
   "About",
 ];
-import { ChannelHome } from "./index";
 import Slider, { Slide } from "../../utils/Slider";
 const ChannelDetails = () => {
   const aboutButton = useRef();
   const [Tab, setTab] = useState();
   const [channel, setChannel] = useState();
   const { id } = useParams();
-  const isHome = window.location.pathname.endsWith(`/channel/${id}`); // for nested Route
 
   useEffect(() => {
     const pre = PossibleTabs.find((el) =>
@@ -117,11 +116,6 @@ const ChannelDetails = () => {
         </div>
         <div className="mx-auto my-5 md:mx-0">
           <Slider>
-            <Slide responsive="xs:basis-2/6 md:basis-2/12">
-              <div className="px-2">
-                <Button el={"Home"} />
-              </div>
-            </Slide>
             {tabs.map(
               (el) =>
                 PossibleTabs.includes(el) && (
@@ -136,7 +130,6 @@ const ChannelDetails = () => {
         </div>
 
         <div className={` relative   min-h-[500px]  py-10`}>
-          {isHome && <ChannelHome homeData={channel} />}
           <Outlet />
         </div>
       </div>

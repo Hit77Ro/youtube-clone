@@ -12,6 +12,7 @@ import { useStore } from "./Context/Context";
 import {
   ChannelAbout,
   ChannelChannels,
+  ChannelHome,
   ChannelLive,
   ChannelPlaylists,
   ChannelShorts,
@@ -24,7 +25,7 @@ const App = () => {
   return (
     <Router>
       <div
-        className={` pt-[100px]  transition-[0.5s] px-5 ${
+        className={` pt-[100px]  transition-[0.5s] xs:px-5 ${
           isSidebarOpen ? "md:ml-[240px]" : ""
         } 
           ${isSearchMode ? "container" : ""} 
@@ -41,6 +42,7 @@ const App = () => {
           <Route path="/search/:searchTerm" exact element={<SearchDetails />} />
           <Route path="/watch/:id" exact element={<VideoDetails />} />
           <Route path="/channel/:id" exact element={<ChannelDetails />}>
+            <Route path="" element={<ChannelHome />} />
             <Route path="videos" element={<ChannelVideos />} />
             <Route path="shorts" element={<ChannelShorts />} />
             <Route path="playlists" element={<ChannelPlaylists />} />

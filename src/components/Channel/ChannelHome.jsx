@@ -2,10 +2,12 @@ import ReactPlayer from "react-player";
 import Loader from "../../utils/Loader";
 import ChannelVideoCard from "./ChannelVideoCard";
 import VideoListing from "./VideoListing";
+import useChannelFetcher from "../../utils/useChannelFetcher";
 
-const ChannelHome = ({ homeData }) => {
-  const { data } = homeData;
-  if (homeData.length <= 0) return <Loader styling="absolute" />;
+const ChannelHome = ({}) => {
+  const obj = useChannelFetcher("home");
+  console.log(obj);
+  if (!obj) return <Loader styling="absolute" />;
   const Player = ({ item }) => (
     <div className="player-wrapper flex flex-1 gap-4 overflow-hidden  rounded-xl ">
       <div className="relative flex min-h-[300px] w-full flex-1">
@@ -20,19 +22,18 @@ const ChannelHome = ({ homeData }) => {
     </div>
   );
 
- return (
-   <div className="flex flex-col gap-10">
-     {data.map(
-       (el) =>
-         el.type === "player" ? (
-           <Player item={el} />
-         ) : el.type === "video_listing" ? (
-         <VideoListing  data={el} />
-         ) : null, // You can add another null here for clarity
-     )}
-   </div>
- );
-
+  return (
+    <div className="flex flex-col gap-10">
+      {obj.data.map(
+        (el) =>
+          el.type === "player" ? (
+            <Player item={el} />
+          ) : el.type === "video_listing" ? (
+            <VideoListing data={el} />
+          ) : null, // You can add another null here for clarity
+      )}
+    </div>
+  );
 };
 
 export default ChannelHome;

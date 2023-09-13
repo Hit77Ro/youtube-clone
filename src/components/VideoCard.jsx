@@ -66,7 +66,7 @@ const VideoCard = ({ item }) => {
         <img
           src={url2 || url1}
           alt={title}
-          className={`${isSearchMode && "rounded-xl"}`}
+          className={`${isSearchMode && "rounded-xl object-fill"}`}
         />
         <span className="absolute bottom-1 right-1 rounded-md bg-black px-2 py-1 text-xs text-white ">
           {" "}
