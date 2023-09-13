@@ -27,32 +27,24 @@ const Slider = ({
     }
   };
 
-  const SlideLimit = () => {
-    const scrollLeft = slides.current?.scrollLeft;
-    const maxScrollLeft =
-      slides.current?.scrollWidth - slides.current?.clientWidth;
-    setSlideBy(Math.round(slides.current?.offsetWidth));
-
-    if (scrollLeft <= 1) {
-      setIsPrev((p) => false);
-    } else {
-      setIsPrev((p) => true);
-    }
-    if (scrollLeft + 1 >= maxScrollLeft) {
-      setIsNext((p) => false);
-    } else {
-      setIsNext((p) => true);
-    }
-  };
   useEffect(() => {
-      SlideLimit();
+    const SlideLimit = () => {
+      const scrollLeft = slides.current?.scrollLeft;
+      const maxScrollLeft =
+        slides.current?.scrollWidth - slides.current?.clientWidth;
+      setSlideBy(Math.round(slides.current?.offsetWidth));
+
+      setIsNext(_=> scrollLeft + 1 <= maxScrollLeft);
+      setIsPrev(_=> scrollLeft >= 1);
+    };
+    SlideLimit();
     slides.current?.addEventListener("scroll", SlideLimit);
     window.addEventListener("resize", SlideLimit);
     return () => {
       slides.current?.removeEventListener("scroll", SlideLimit);
       window.removeEventListener("resize", SlideLimit);
     };
-  }, [slideBy]);
+  }, []);
 
   return (
     <div className={` relative w-full`}>
