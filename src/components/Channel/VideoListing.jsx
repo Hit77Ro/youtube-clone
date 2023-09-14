@@ -39,11 +39,11 @@ import ChannelVideoCard from "./ChannelVideoCard";
   }
  const VideoListing = ({ data }) => (
    <div className="flex-1">
-     <h3 className="mb-6 text-lg  font-bold"> {data.title} </h3>
+     <h3 className="mb-3 text-lg  font-bold"> {data.title} </h3>
 
-     <Slider styling="py-4" settings={settings}>
+     <Slider styling="py-2" settings={settings}>
        {data.data.map((el) => (
-         <Slide styling="xs:p-2" >
+         <Slide styling="xs:p-1 xs:mx-0 mx-1" >
              
            
          <ChannelVideoCard key={crypto.randomUUID()} item={el} />

@@ -15,7 +15,7 @@ const Explore = () => {
   }, [category]);
   return (
     <div >
-      <h1 className="mb-10  text-center text-[23px] font-medium text-slate-800 capitalize sm:text-[30px]">
+      <h1 className="mb-10  text-center text-[20px] font-medium text-slate-800 capitalize sm:text-[25px]">
         {" "}
         explore
         <span className=" text-red-500"> {category}</span> videos{" "}

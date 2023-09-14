@@ -18,7 +18,11 @@ const SearchDetails = () => {
     });
   }, [searchTerm]);
 
-  return <Videos medias={medias} />;
+  return (
+    <div className="px-5">
+      <Videos medias={medias} />
+    </div>
+  );
 };
 
 export default SearchDetails;

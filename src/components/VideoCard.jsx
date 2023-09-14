@@ -27,7 +27,7 @@ const VideoCard = ({ item }) => {
     return (
       <Link
         to={`/channel/${channelId}`}
-        className="mt-2 text-[11px] sm:text-sm leading-6 flex items-center gap-3"
+        className="mt-2 text-[11px] sm:text-sm leading-6 flex items-center gap-1"
       >
         {" "}
         {searchmode && (
@@ -82,7 +82,7 @@ const VideoCard = ({ item }) => {
               {" "}
               {title.split(" ").length <= 10
                 ? title
-                : title.split(" ", 10).join(" ") + "..."}{" "}
+                : title.split(" ", 5).join(" ") + "..."}{" "}
             </h3>
           </Link>
         </div>
@@ -109,7 +109,7 @@ const VideoCard = ({ item }) => {
           </div>
           {isSearchMode && description && (
             <p title="from description" className="mt-2 text-[10px] md:text-sm">
-              {description.split("",25).join("") + "..."}
+              {description.split("",15).join("") + "..."}
             </p>
           )}
         </div>

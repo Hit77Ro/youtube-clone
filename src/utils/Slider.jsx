@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 
-const buttonStyles = ` z-[1] shadow-md    top-2/4 -translate-y-2/4 absolute rounded-full min-w-[35px] min-h-[35px]   flex items-center  justify-center`;
+const buttonStyles = ` z-[1] shadow-md    top-2/4 -translate-y-2/4 absolute rounded-full min-w-[35px] min-h-[35px]   items-center    justify-center`;
 
 const sliderStyles = ` scroll-smooth  overflow-auto flex snap-x snap-mandatory`;
 
@@ -35,8 +35,8 @@ const Slider = ({
         slides.current?.scrollWidth - slides.current?.clientWidth;
       setSlideBy(Math.round(slides.current?.offsetWidth));
 
-      setIsNext((_) => scrollLeft + 1 <= maxScrollLeft);
-      setIsPrev((_) => scrollLeft >= 1);
+      setIsNext((_) => scrollLeft + 10 <= maxScrollLeft);
+      setIsPrev((_) => scrollLeft >= 10);
     };
     SlideLimit();
     slides.current?.addEventListener("scroll", SlideLimit);
@@ -47,28 +47,26 @@ const Slider = ({
     };
   }, []);
 
+
   return (
     <div className={` relative w-full`}>
       <button
         onClick={move}
         className={`-translate-x-2/4  ${buttonStyling} ${buttonStyles} ${
-          !isPrev ? "hidden" : ""
+          !isPrev ? "hidden" : "flex"
         }`}
       >
         <AiOutlineArrowLeft />
       </button>
       <button
-        onClick={()=>move("next")}
+        onClick={() => move("next")}
         className={`right-0 translate-x-2/4 ${buttonStyling} ${buttonStyles} ${
-          !isNext ? "hidden" : ""
+          !isNext ? "hidden" : "flex"
         } `}
       >
         <AiOutlineArrowRight />
       </button>
-      <div
-        ref={slides}
-        className={`${sliderStyles} ${styling}`}
-      >
+      <div ref={slides} className={`${sliderStyles} ${styling}`}>
         {children}
       </div>
     </div>
