@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 
-const buttonStyles = ` z-[1] shadow-md    top-2/4 -translate-y-2/4 absolute rounded-full min-w-[35px] min-h-[35px]   items-center    justify-center`;
+const buttonStyles = ` z-[1] shadow-md    top-2/4 -translate-y-2/4 absolute rounded-full min-w-[35px] min-h-[35px]   items-center  hidden  justify-center`;
 
 const sliderStyles = ` scroll-smooth  overflow-auto flex snap-x snap-mandatory`;
 
@@ -53,7 +53,7 @@ const Slider = ({
       <button
         onClick={move}
         className={`-translate-x-2/4  ${buttonStyling} ${buttonStyles} ${
-          !isPrev ? "hidden" : "flex"
+          !isPrev ? "hidden" : "xs:flex"
         }`}
       >
         <AiOutlineArrowLeft />
@@ -61,7 +61,7 @@ const Slider = ({
       <button
         onClick={() => move("next")}
         className={`right-0 translate-x-2/4 ${buttonStyling} ${buttonStyles} ${
-          !isNext ? "hidden" : "flex"
+          !isNext ? "hidden" : "xs:flex"
         } `}
       >
         <AiOutlineArrowRight />

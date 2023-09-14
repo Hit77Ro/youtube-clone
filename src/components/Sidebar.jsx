@@ -46,7 +46,7 @@ const Sidebar = () => {
     >
       <div className="h-[70px]">
         <div
-          className={`sidebarStyles fixed z-30 flex  h-[70px] items-center bg-white px-2 sm:px-5  ${styles.sidebarStyles}`}
+          className={`sidebarStyles fixed z-30 flex  h-[70px] items-center bg-white ${styles.paddingX}  ${styles.sidebarStyles}`}
         >
           <Logo barRef={barRef} />
         </div>

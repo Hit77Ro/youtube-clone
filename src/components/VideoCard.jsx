@@ -54,7 +54,7 @@ const VideoCard = ({ item }) => {
     <div
       className={`grid  overflow-hidden   ${
         isSearchMode
-          ? "  mx-auto  max-h-[250px] max-w-[800px] grid-cols-2  grid-rows-[1fr] "
+          ? "  mx-auto  max-h-[250px] md:max-w-[800px] xs:grid-cols-2  grid-rows-[1fr] "
           : "grid-cols-1 xs:rounded-lg   xs:shadow-md"
       }`}
     >

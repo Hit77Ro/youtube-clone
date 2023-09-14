@@ -14,7 +14,7 @@ const Logo = ({ barRef }) => {
       </button>
       <Link to="/" className={`flex items-center  gap-2 text-[20px]`}>
         <BsYoutube style={{ color: "red", fontSize: 20 }} />
-        <h1 className="text-2xl font-bold text-slate-700  sm:text-2xl">
+        <h1 className="text-xl font-bold text-slate-700  sm:text-2xl">
           Youtube
         </h1>
       </Link>

@@ -8,7 +8,7 @@ const ChannelHome = ({}) => {
   console.log(obj);
   if (!obj) return <Loader styling="absolute" />;
   const Player = ({ item }) => (
-    <div className="player-wrapper flex flex-1 gap-4 overflow-hidden  md:rounded-lg ">
+    <div className="player-wrapper flex flex-1 gap-4 overflow-hidden  rounded-md md:rounded-lg ">
       <div className="relative flex min-h-[300px] w-full flex-1">
         <ReactPlayer
           url={`https://www.youtube.com/watch?v=` + item.videoId}
@@ -22,7 +22,7 @@ const ChannelHome = ({}) => {
   );
 
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-6">
       {obj.data.map(
         (el) =>
           el.type === "player" ? (
