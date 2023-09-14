@@ -56,10 +56,8 @@ const Sidebar = () => {
           <button
             onClick={() => handleClick(cat.name)}
             key={cat.name}
-            className={`gap-5 rounded-md px-2 py-3 font-semibold capitalize text-red-500 transition-all  hover:shadow-sm ${
-              category === cat.name
-                ? "scale-105 bg-red-500 text-white shadow-md "
-                : "bg-slate-50 hover:bg-slate-200"
+            className={`gap-5 whitespace-nowrap rounded-sm px-5 py-2 text-[14px] capitalize  text-slate-800 shadow-sm transition-all  sm:py-3 ${
+              category === cat.name ? " bg-slate-200  " : " hover:bg-slate-200"
             } ${styles.centerX}`}
           >
             <span className="text-lg font-extrabold"> {cat.icon} </span>

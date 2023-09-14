@@ -9,8 +9,7 @@ const useChannelFetcher = (tab) => {
     FetchApi(`channel/${tab}?id=${id}`).then((d) => setData(d));
   }, [id]);
 
-  
-  return data;
+  return { data, id };
 };
 
 export default useChannelFetcher;

@@ -4,7 +4,7 @@ import VideoListing from "./VideoListing";
 import useChannelFetcher from "../../utils/useChannelFetcher";
 
 const ChannelHome = ({}) => {
-  const obj = useChannelFetcher("home");
+  const { data: obj, id } = useChannelFetcher("home");
   console.log(obj);
   if (!obj) return <Loader styling="absolute" />;
   const Player = ({ item }) => (

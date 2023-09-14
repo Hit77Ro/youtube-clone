@@ -14,7 +14,7 @@ const ChannelAbout = () => {
   // useEffect(() => {
   //   FetchApi(`channel/about?id=${id}`).then((d) => console.log(d));
   // }, [id]);
-  const data = useChannelFetcher("about");
+  const { data, id } = useChannelFetcher("about");
   if (!data) return <Loader styling="absolute h-full w-full" />;
 
   const { joinedDate, country, description, viewCount } = data;
@@ -58,6 +58,8 @@ const ChannelAbout = () => {
 
 export default ChannelAbout;
 
-const slider = ({children ,settings}) => { 
-   {children}
-}
+const slider = ({ children, settings }) => {
+  {
+    children;
+  }
+};

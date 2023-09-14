@@ -6,7 +6,7 @@ import { ImWondering } from "react-icons/im";
 import { useState } from "react";
 
 const ChannelChannels = () => {
-  const data = useChannelFetcher("channels");
+  const { data, id } = useChannelFetcher("channels");
   const [filterdChannel, setFilteredChannel] = useState("all");
   if (!data) return <Loader styling="absolute h-full w-full" />;
 
@@ -51,9 +51,7 @@ const ChannelChannels = () => {
             {data.title}{" "}
           </h3>
         )}
-        <div
-          className={` ${styles.grid}`}
-        >
+        <div className={` ${styles.grid}`}>
           {data.data.map((el, idx) => (
             <ChannelCard key={idx} el={el} />
           ))}
