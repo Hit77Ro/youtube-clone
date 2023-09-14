@@ -5,7 +5,7 @@ import styles from "../../style";
 const ChannelVideoCard = ({ item, channelTitle }) => {
   const { lengthText, publishedTimeText, title, viewCount } = item;
   return (
-    <div className="flex  h-full flex-col gap-3 overflow-hidden rounded-xl shadow-md">
+    <div className="flex  h-full flex-col gap-3 overflow-hidden sm:rounded-xl sm:shadow-md">
       <div className="relative flex-col overflow-hidden">
         <img
           className="w-full"

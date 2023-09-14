@@ -27,11 +27,11 @@ const VideoCard = ({ item }) => {
     return (
       <Link
         to={`/channel/${channelId}`}
-        className="mt-1 flex items-center gap-3"
+        className="mt-2 flex items-center gap-3"
       >
         {" "}
         {searchmode && (
-          <span className=" block h-[25px] w-[25px] shrink-0 overflow-hidden  rounded-full">
+          <span className=" block h-[30px] w-[30px] shrink-0 overflow-hidden  rounded-full">
             <img src={url} alt="channelAvatar" />
             <img src={url || "https://placehold.co/400"} alt="channelAvatar" />
           </span>
@@ -52,21 +52,23 @@ const VideoCard = ({ item }) => {
   );
   return (
     <div
-      className={`grid   overflow-hidden rounded-xl  ${
+      className={`grid   overflow-hidden sm:shadow-md sm:rounded-lg  ${
         isSearchMode
           ? "  mx-auto max-h-[250px] max-w-[800px] grid-cols-2  grid-rows-[1fr] gap-2"
-          : "shadow-md "
+          : ""
       }`}
     >
       {/* image */}
       <Link
         to={`/watch/${videoId}`}
-        className={` flex relative max-w-[400px] overflow-hidden`}
+        className={` relative flex max-w-[400px] overflow-hidden`}
       >
         <img
           src={url2 || url1}
           alt={title}
-          className={`${isSearchMode && " flex-1 h-auto rounded-md object-fill"}`}
+          className={`${
+            isSearchMode && " h-auto flex-1 rounded-md object-fill"
+          }`}
         />
         <span className="absolute bottom-1 right-1 rounded-md bg-black px-2 py-1 text-xs text-white ">
           {" "}
@@ -78,7 +80,7 @@ const VideoCard = ({ item }) => {
         <div className={`${styles.centerX} gap-2`}>
           {!isSearchMode && <Img />}
           <Link to={`/watch/${videoId}`}>
-            <h3 title={title} className="md:text-md text-sm">
+            <h3 title={title} className="md:text-md text-slate-800 sm:text-sm text-[13px]">
               {" "}
               {title.split(" ").length <= 10
                 ? title
