@@ -96,7 +96,7 @@ const VideoCard = ({ item }) => {
           >
             {/* channelimage */}
             <ChannelImg searchmode={isSearchMode} />
-            <div className={`gap flex items-center`}>
+            <div className={`gap text-[10px] md:text-sm flex items-center`}>
               <span className="mt-1 flex items-center gap-2 ">
                 <span title={viewCount}> {formatNumber(+viewCount)}</span> views
               </span>
