@@ -56,7 +56,7 @@ const Sidebar = () => {
           <button
             onClick={() => handleClick(cat.name)}
             key={cat.name}
-            className={`gap-5 whitespace-nowrap rounded-sm px-5 py-2 text-[14px] capitalize  text-slate-800 shadow-sm transition-all  sm:py-3 ${
+            className={`mt-2 gap-5 whitespace-nowrap rounded-sm px-5 py-3 text-[14px] capitalize  text-slate-800 shadow-sm transition-all  sm:py-4 ${
               category === cat.name ? " bg-slate-200  " : " hover:bg-slate-200"
             } ${styles.centerX}`}
           >

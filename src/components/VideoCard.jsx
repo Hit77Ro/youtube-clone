@@ -54,19 +54,19 @@ const VideoCard = ({ item }) => {
     <div
       className={`grid   overflow-hidden rounded-xl  ${
         isSearchMode
-          ? "  mx-auto max-h-[250px] max-w-[800px] grid-cols-2  grid-rows-[1fr] gap-4"
+          ? "  mx-auto max-h-[250px] max-w-[800px] grid-cols-2  grid-rows-[1fr] gap-2"
           : "shadow-md "
       }`}
     >
       {/* image */}
       <Link
         to={`/watch/${videoId}`}
-        className={` relative max-w-[400px] overflow-hidden`}
+        className={` flex relative max-w-[400px] overflow-hidden`}
       >
         <img
           src={url2 || url1}
           alt={title}
-          className={`${isSearchMode && "rounded-xl object-fill"}`}
+          className={`${isSearchMode && " flex-1 h-auto rounded-md object-fill"}`}
         />
         <span className="absolute bottom-1 right-1 rounded-md bg-black px-2 py-1 text-xs text-white ">
           {" "}

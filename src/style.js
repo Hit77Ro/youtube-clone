@@ -18,7 +18,7 @@ const styles = {
   asideWidth: 240,
   centerX: "flex items-center",
   sidebarStyles: "w-[200px] sm:w-[240px]",
-  grid: "grid   grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-5",
+  grid: "grid   grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-2",
 };
 
 export const layout = {
@@ -29,7 +29,7 @@ export const layout = {
   sectionImg: ``,
 
   sectionInfo: `flex flex-col`,
-  container : `lg:px-[200px] h-full `
+  container: `lg:px-[200px] h-full `,
 };
 
 export default styles;

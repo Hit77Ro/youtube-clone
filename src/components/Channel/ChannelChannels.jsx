@@ -42,7 +42,6 @@ const ChannelChannels = () => {
 
   // Todo:  Slider
   const ChannelListing = ({ data }) => {
-    console.log("==>", data);
     return (
       <div className="flex basis-full flex-col gap-10 last:mt-10">
         {filterdChannel === "all" && (
