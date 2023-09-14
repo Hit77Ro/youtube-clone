@@ -43,7 +43,7 @@ import ChannelVideoCard from "./ChannelVideoCard";
 
      <Slider styling="py-4" settings={settings}>
        {data.data.map((el) => (
-         <Slide styling="p-2" >
+         <Slide styling="sm:p-2" >
              
            
          <ChannelVideoCard key={crypto.randomUUID()} item={el} />
