@@ -6,8 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { useStore } from "../Context/Context";
 
 const Navbar = () => {
-  const { SetLoader, dispatch, isSearchMode } = useStore();
-
   const navigate = useNavigate();
   const [inputToggler, setInputToggler] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -15,7 +13,6 @@ const Navbar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({ type: SetLoader, payload: true });
     if (searchTerm) navigate(`search/${searchTerm}`);
   };
 

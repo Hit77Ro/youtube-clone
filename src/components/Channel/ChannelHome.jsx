@@ -1,6 +1,5 @@
 import ReactPlayer from "react-player";
 import Loader from "../../utils/Loader";
-import ChannelVideoCard from "./ChannelVideoCard";
 import VideoListing from "./VideoListing";
 import useChannelFetcher from "../../utils/useChannelFetcher";
 

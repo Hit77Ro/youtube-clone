@@ -16,10 +16,15 @@ const PossibleTabs = [
 import Slider, { Slide } from "../../utils/Slider";
 const ChannelDetails = () => {
   const aboutButton = useRef();
-  const [Tab, setTab] = useState();
+  const [Tab, setTab] = useState("Home");
   const [channel, setChannel] = useState();
   const { id } = useParams();
+  const HomeRef = useRef();
 
+
+  useEffect(() => { 
+    HomeRef.current?.scrollIntoView();
+  } , [])
   useEffect(() => {
     const pre = PossibleTabs.find((el) =>
       location.pathname.includes(el.toLowerCase()),
@@ -46,7 +51,7 @@ const ChannelDetails = () => {
     tabs,
   } = meta;
   const Button = ({ el }) => {
-    const linkStyles = ` rounded-md border block px-2 py-1 text-center text-slate-500  transition-[.5s] ${
+    const linkStyles = ` rounded-md border block px-10 py-1 text-[14px] sm:py-2 text-center text-slate-500  transition-[.5s] ${
       Tab === el
         ? " border-red-800 bg-red-600 text-white hover:bg-red-600"
         : "border-slate-300 hover:bg-slate-200"
@@ -56,6 +61,7 @@ const ChannelDetails = () => {
         to={`/channel/${id}${el === "Home" ? "" : "/" + el.toLowerCase()}`}
         key={el}
         className={linkStyles}
+        ref={el === "Home" ? HomeRef : null}
       >
         {el}
       </NavLink>
@@ -72,19 +78,18 @@ const ChannelDetails = () => {
   };
   return (
     <div className={`min-h-screen `}>
-      {meta.banner.length >= 0 && (
+      {meta.banner && (
         <div className="flex h-[100px] overflow-hidden rounded-md lg:h-[300px]">
           <img
             className="h-full flex-1"
             src={
               meta?.banner[5]?.url ||
               meta?.banner[4]?.url ||
-              meta?.banner[3]?.url ||
               meta?.banner[2]?.url ||
               meta?.banner[1]?.url ||
-              meta?.banner[0]?.url
+              meta?.banner[0]?.url 
             }
-            alt=""
+            alt="channel banner"
           />
         </div>
       )}
@@ -119,7 +124,7 @@ const ChannelDetails = () => {
             {tabs.map(
               (el) =>
                 PossibleTabs.includes(el) && (
-                  <Slide responsive=" xs:basis-2/6 md:basis-2/12">
+                  <Slide responsive="">
                     <div className="px-1">
                       <Button key={el} el={el} />
                     </div>

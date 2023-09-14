@@ -23,16 +23,21 @@ const ChannelVideoCard = ({ item, channelTitle }) => {
         </span>
       </div>
       <div className="p-2 pb-4">
-        <h3 className="text-sm text-slate-700"> {title.split(" " ,5).join(" ") + "..."} </h3>
+        <h3 className="text-sm text-slate-700">
+          {" "}
+          {title.split(" ", 5).join(" ") + "..."}{" "}
+        </h3>
         {channelTitle && (
           <span className="text-slate-500"> {channelTitle} </span>
         )}
 
-        <p className={` mt-2 text-xs  text-slate-600 ${styles.centerX}`}>
-          <span> {formatNumber(viewCount)} views </span>
-          <BsDot />
-          <span> {publishedTimeText} </span>
-        </p>
+        {viewCount && (
+          <p className={` mt-2 text-xs  text-slate-600 ${styles.centerX}`}>
+            <span> {formatNumber(viewCount)} views </span>
+            <BsDot />
+            <span> {publishedTimeText} </span>
+          </p>
+        )}
       </div>
     </div>
   );

@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 
-const buttonStyles = ` z-[1] shadow-md    top-2/4 -translate-y-2/4 absolute rounded-full min-w-[35px] min-h-[35px]  flex items-center  justify-center`;
+const buttonStyles = ` z-[1] shadow-md    top-2/4 -translate-y-2/4 absolute rounded-full min-w-[35px] min-h-[35px]   flex items-center  justify-center`;
 
-const sliderStyles = ` scroll-smooth  overflow-scroll flex snap-x snap-mandatory`;
+const sliderStyles = ` scroll-smooth  overflow-auto flex snap-x snap-mandatory`;
 
 const Slider = ({
   children,
@@ -67,7 +67,6 @@ const Slider = ({
       </button>
       <div
         ref={slides}
-        style={{ scrollbarWidth: 0 }}
         className={`${sliderStyles} ${styling}`}
       >
         {children}
@@ -79,11 +78,11 @@ const Slider = ({
 export const Slide = ({
   children,
   styling = "",
-  responsive = "xs:basis-2/4 sm:basis-2/6  md:basis-3/12 xl:basis-2/12",
+  responsive = " basis-full xs:basis-2/4 sm:basis-2/6  md:basis-3/12 xl:basis-2/12",
 }) => {
   return (
     <div
-      className={` max-w-full flex-none basis-full snap-start  ${responsive}  ${styling}`}
+      className={` max-w-full  shrink-0 snap-start  ${responsive}  ${styling}`}
     >
       {children}
     </div>
