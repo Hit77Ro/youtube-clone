@@ -27,11 +27,11 @@ const VideoCard = ({ item }) => {
     return (
       <Link
         to={`/channel/${channelId}`}
-        className="mt-2 text-xs sm:text-sm leading-6 flex items-center gap-3"
+        className="mt-2 text-[11px] sm:text-sm leading-6 flex items-center gap-3"
       >
         {" "}
         {searchmode && (
-          <span className=" block h-[30px] w-[30px] shrink-0 overflow-hidden  rounded-full">
+          <span className=" block h-[20px] w-[20px] shrink-0 overflow-hidden  rounded-full">
             <img src={url} alt="channelAvatar" />
             <img src={url || "https://placehold.co/400"} alt="channelAvatar" />
           </span>
@@ -77,7 +77,7 @@ const VideoCard = ({ item }) => {
           <Link to={`/watch/${videoId}`}>
             <h3
               title={title}
-              className="md:text-md text-[13px] text-slate-800 sm:text-sm"
+              className="md:text-md text-xs text-slate-800 sm:text-sm"
             >
               {" "}
               {title.split(" ").length <= 10
@@ -87,10 +87,10 @@ const VideoCard = ({ item }) => {
           </Link>
         </div>
 
-        <div className="flex flex-col pl-4 text-[15px] text-slate-700">
+        <div className="flex flex-col xs:pl-3 text-[15px] text-slate-700">
           {/* todo reverse when searchmode */}
           <div
-            className={`flex text-[13px] text-slate-600 sm:text-sm  ${
+            className={`flex text-xs text-slate-600 sm:text-sm  ${
               isSearchMode ? "flex-col-reverse" : "flex-col"
             }`}
           >
@@ -108,7 +108,7 @@ const VideoCard = ({ item }) => {
             </div>
           </div>
           {isSearchMode && description && (
-            <p title="from description" className="mt-2 text-xs md:text-sm">
+            <p title="from description" className="mt-2 text-[10px] md:text-sm">
               {description.split("",25).join("") + "..."}
             </p>
           )}
