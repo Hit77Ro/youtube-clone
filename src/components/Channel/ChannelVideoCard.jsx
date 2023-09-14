@@ -5,10 +5,10 @@ import styles from "../../style";
 const ChannelVideoCard = ({ item, channelTitle }) => {
   const { lengthText, publishedTimeText, title, viewCount } = item;
   return (
-    <div className="flex  h-full flex-col gap-3 overflow-hidden sm:rounded-xl sm:shadow-md">
-      <div className="relative flex-col overflow-hidden">
+    <div className="flex  h-full flex-col gap-3 overflow-hidden xs:rounded-xl xs:shadow-md">
+      <div className="relative overflow-hidden">
         <img
-          className="w-full"
+          className="w-full "
           src={
             item?.thumbnail[3]?.url ||
             item?.thumbnail[2]?.url ||

@@ -14,8 +14,8 @@ const Explore = () => {
     });
   }, [category]);
   return (
-    <div className={`py-10`}>
-      <h1 className="mb-10  text-[30px] font-extrabold capitalize sm:text-[40px]">
+    <div >
+      <h1 className="mb-10  text-center text-[23px] font-medium text-slate-800 capitalize sm:text-[30px]">
         {" "}
         explore
         <span className=" text-red-500"> {category}</span> videos{" "}

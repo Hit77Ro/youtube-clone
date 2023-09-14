@@ -27,7 +27,7 @@ const VideoCard = ({ item }) => {
     return (
       <Link
         to={`/channel/${channelId}`}
-        className="mt-2 flex items-center gap-3"
+        className="mt-2 text-xs sm:text-sm leading-6 flex items-center gap-3"
       >
         {" "}
         {searchmode && (
@@ -52,23 +52,18 @@ const VideoCard = ({ item }) => {
   );
   return (
     <div
-      className={`grid   overflow-hidden sm:shadow-md sm:rounded-lg  ${
+      className={`grid  overflow-hidden   ${
         isSearchMode
-          ? "  mx-auto max-h-[250px] max-w-[800px] grid-cols-2  grid-rows-[1fr] gap-2"
-          : ""
+          ? "  mx-auto  max-h-[250px] max-w-[800px] grid-cols-2  grid-rows-[1fr] "
+          : "grid-cols-1 xs:rounded-lg   xs:shadow-md"
       }`}
     >
       {/* image */}
-      <Link
-        to={`/watch/${videoId}`}
-        className={` relative flex max-w-[400px] overflow-hidden`}
-      >
+      <Link to={`/watch/${videoId}`} className={` relative flex  w-full overflow-hidden ${isSearchMode && "rounded-lg"} `}>
         <img
           src={url2 || url1}
           alt={title}
-          className={`${
-            isSearchMode && " h-auto flex-1 rounded-md object-fill"
-          }`}
+          className={`${isSearchMode && " flex-1  object-fill"}`}
         />
         <span className="absolute bottom-1 right-1 rounded-md bg-black px-2 py-1 text-xs text-white ">
           {" "}
@@ -76,11 +71,14 @@ const VideoCard = ({ item }) => {
         </span>
       </Link>
       {/* content start */}
-      <div className="py-2 pl-1">
+      <div className="py-2 pl-2">
         <div className={`${styles.centerX} gap-2`}>
           {!isSearchMode && <Img />}
           <Link to={`/watch/${videoId}`}>
-            <h3 title={title} className="md:text-md text-slate-800 sm:text-sm text-[13px]">
+            <h3
+              title={title}
+              className="md:text-md text-[13px] text-slate-800 sm:text-sm"
+            >
               {" "}
               {title.split(" ").length <= 10
                 ? title
@@ -89,7 +87,7 @@ const VideoCard = ({ item }) => {
           </Link>
         </div>
 
-        <div className=" flex flex-col text-[15px] text-slate-700">
+        <div className="flex flex-col pl-4 text-[15px] text-slate-700">
           {/* todo reverse when searchmode */}
           <div
             className={`flex text-[13px] text-slate-600 sm:text-sm  ${
@@ -111,7 +109,7 @@ const VideoCard = ({ item }) => {
           </div>
           {isSearchMode && description && (
             <p title="from description" className="mt-2 text-xs md:text-sm">
-              {description.split(" ", 5).join(" ") + "..."}
+              {description.split("",25).join("") + "..."}
             </p>
           )}
         </div>

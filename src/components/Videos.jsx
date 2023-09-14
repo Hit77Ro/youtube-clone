@@ -10,11 +10,11 @@ const Videos = ({ medias }) => {
   if (medias.length <= 0) return <Loader />;
   return (
     <div
-      className={` grid gap-5
+      className={` grid gap-2
       ${
         isSearchMode
           ? "grid-cols-1 xl:mx-auto "
-          : " xs:grid-cols-[repeat(auto-fit,minmax(270px,1fr))] "
+          : " xs:grid-cols-[repeat(auto-fit,minmax(240px,1fr))] "
       }
         `}
     >
