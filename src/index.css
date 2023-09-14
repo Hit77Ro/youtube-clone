@@ -32,7 +32,7 @@ img {
 }
 @layer components {
   .y-btn {
-    @apply flex h-[30px] w-[40px] items-center justify-center rounded-md bg-slate-50 font-extrabold text-red-600 hover:bg-gray;
+    @apply flex h-[30px] w-[40px] items-center justify-center rounded-md bg-slate-50 font-extrabold text-red-600 hover:bg-slate-100;
   }
 }
 .overlay {
