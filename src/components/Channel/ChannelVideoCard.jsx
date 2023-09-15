@@ -5,7 +5,7 @@ import styles from "../../style";
 const ChannelVideoCard = ({ item, channelTitle }) => {
   const { lengthText, publishedTimeText, title, viewCount } = item;
   return (
-    <div className="flex  h-full flex-col gap-3 overflow-hidden xs:rounded-xl rounded-md xs:shadow-md">
+    <div className="grid h-full grid-cols-[45%,55%] gap-1  overflow-hidden rounded-md xs:grid-cols-1 xs:rounded-xl xs:shadow-md">
       <div className="relative overflow-hidden">
         <img
           className="w-full rounded-md xs:rounded-none "
@@ -23,7 +23,7 @@ const ChannelVideoCard = ({ item, channelTitle }) => {
         </span>
       </div>
       <div className="p-2 pb-4">
-        <h3 className="text-sm text-slate-700">
+        <h3 title={title} className="text-sm text-slate-700">
           {" "}
           {title.split(" ", 5).join(" ") + "..."}{" "}
         </h3>
