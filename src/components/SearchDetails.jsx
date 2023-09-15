@@ -3,6 +3,7 @@ import Videos from "./Videos";
 import { useEffect, useState } from "react";
 import { FetchApi } from "../utils/api";
 import { useStore } from "../Context/Context";
+import styles from "../style";
 
 const SearchDetails = () => {
   const [medias, setMedias] = useState([]);
@@ -19,7 +20,7 @@ const SearchDetails = () => {
   }, [searchTerm]);
 
   return (
-    <div className="px-5">
+    <div className={` ${styles.marginY} ${styles.paddingX}`}>
       <Videos medias={medias} />
     </div>
   );

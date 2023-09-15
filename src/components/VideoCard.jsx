@@ -71,7 +71,7 @@ const VideoCard = ({ item }) => {
         </span>
       </Link>
       {/* content start */}
-      <div className="py-2 pl-2">
+      <div className="py-2 px-3">
         <div className={`${styles.centerX} gap-2`}>
           {!isSearchMode && <Img />}
           <Link to={`/watch/${videoId}`}>
@@ -80,14 +80,12 @@ const VideoCard = ({ item }) => {
               className="md:text-md text-xs text-slate-800 sm:text-sm"
             >
               {" "}
-              {title.split(" ").length <= 10
-                ? title
-                : title.split(" ", 5).join(" ") + "..."}{" "}
+              {title}
             </h3>
           </Link>
         </div>
 
-        <div className="flex flex-col xs:pl-3 text-[15px] text-slate-700">
+        <div className="flex flex-col text-[15px] text-slate-700">
           {/* todo reverse when searchmode */}
           <div
             className={`flex text-xs text-slate-600 sm:text-sm  ${

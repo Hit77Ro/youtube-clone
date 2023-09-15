@@ -40,9 +40,9 @@ const Sidebar = () => {
   return (
     <aside
       className={`fixed bottom-0 top-0 z-20 min-h-screen 
-      overflow-auto bg-white shadow-lg transition-[width,0.3s,linear] lg:shadow-none ${
+      overflow-auto bg-white shadow-lg transition-all  lg:shadow-none ${
         styles.sidebarStyles
-      } ${isSidebarOpen ? "left-0" : "-left-full"}`}
+      } ${isSidebarOpen ? "left-0" : "left-[-150%]"}`}
     >
       <div className="h-[70px]">
         <div

@@ -76,11 +76,11 @@ const ChannelDetails = () => {
     );
   };
   return (
-    <div className={`min-h-screen px-4 `}>
+    <div className={`min-h-screen  `}>
       {meta.banner && (
-        <div className="flex h-[240px] overflow-hidden rounded-md">
+        <div className="flex h-[18vw] w-full lg:h-[16wv]   ">
           <img
-            className="h-full flex-1 object-cover"
+            className="h-full  flex-1 "
             src={
               meta?.banner[5]?.url ||
               meta?.banner[4]?.url ||
@@ -92,7 +92,7 @@ const ChannelDetails = () => {
           />
         </div>
       )}
-      <div className={``}>
+      <div className={`${styles.paddingX}`}>
         <div className={`mt-5  flex  flex-col items-center sm:flex-row`}>
           <div
             className={` max-w-[80px] overflow-hidden rounded-full md:max-w-[100px]  ${styles.flexCenter}`}
