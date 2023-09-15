@@ -20,7 +20,8 @@ const VideoListing = ({ data }) => {
           : childHeight * Math.round(parent.current?.children.length / 2),
       );
     }
-  }, [childHeight]);
+    console.log(childHeight)
+  }, [isOpen ,childHeight]);
 
   return (
     <div className={`flex-1`}>
@@ -51,7 +52,7 @@ const VideoListing = ({ data }) => {
         </div>
       </div>
       <button
-        onClick={() => setIsOpen(!isOpen)} // Toggle the isOpen state
+        onClick={() => setIsOpen(true)} // Toggle the isOpen state
         className={`mt-5 w-full cursor-pointer justify-center rounded-md p-3 text-center text-2xl xs:hidden ${
           isOpen ? "hidden" : "flex"
         }`}

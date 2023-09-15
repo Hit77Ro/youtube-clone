@@ -44,7 +44,6 @@ const VideoCard = ({ item }) => {
       </Link>
     );
   };
-  console.log(item);
   const Img = () => (
     <Link
       to={`/channel/${channelId}`}
@@ -55,7 +54,7 @@ const VideoCard = ({ item }) => {
   );
   return (
     <div
-      className={`grid  overflow-hidden   ${
+      className={`grid min-h-[200px] overflow-hidden   ${
         isSearchMode
           ? "  mx-auto  max-h-[300px] grid-rows-[1fr] overflow-hidden xs:grid-cols-[40%,60%]  md:max-w-[900px] "
           : "grid-cols-1 rounded-md xs:rounded-lg   xs:shadow-md"
@@ -64,7 +63,7 @@ const VideoCard = ({ item }) => {
       {/* image */}
       <Link
         to={`/watch/${videoId}`}
-        className={` relative flex  max-h-[96%] w-full overflow-hidden rounded-md xs:rounded-none sm:max-h-[90%] md:max-h-[240px] ${
+        className={` relative flex min-[100px] max-h-[96%] w-full overflow-hidden rounded-md xs:rounded-none sm:max-h-[90%] md:max-h-[240px] ${
           isSearchMode && "rounded-lg"
         } `}
       >

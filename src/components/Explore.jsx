@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { FetchApi } from "../utils/api";
 import Videos from "./Videos";
 import { useStore } from "../Context/Context";
+import styles from "../style";
 const Explore = () => {
   const { category } = useParams();
   const { ToggleSearchMode, dispatch } = useStore();
@@ -18,7 +19,7 @@ const Explore = () => {
     dispatch({ type: ToggleSearchMode, payload: false });
   }, []);
   return (
-    <div>
+    <div className={`${styles.paddingX}`}>
       <h1 className="mb-10  text-center text-[20px] font-medium capitalize text-slate-800 sm:text-[25px]">
         {" "}
         explore
