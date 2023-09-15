@@ -37,7 +37,7 @@ const VideoCard = ({ item }) => {
           </span>
         )}
         <span title={channelTitle}>{channelTitle} </span>
-        <span className="text-[13px]">{<AiFillCheckCircle />} </span>
+        <span className="text-[13px] hidden md:block">{<AiFillCheckCircle />} </span>
       </Link>
     );
   };
@@ -54,7 +54,7 @@ const VideoCard = ({ item }) => {
     <div
       className={`grid  overflow-hidden   ${
         isSearchMode
-          ? "  mx-auto  max-h-[350px] grid-rows-[1fr] xs:grid-cols-2  md:max-w-[900px] "
+          ? "  mx-auto  max-h-[200px] overflow-hidden grid-rows-[1fr] xs:grid-cols-[40%,60%]  md:max-w-[900px] "
           : "grid-cols-1 rounded-md xs:rounded-lg   xs:shadow-md"
       }`}
     >
@@ -93,14 +93,14 @@ const VideoCard = ({ item }) => {
         <div className="flex flex-col text-[15px] text-slate-700">
           {/* todo reverse when searchmode */}
           <div
-            className={`flex text-xs text-slate-600 sm:text-sm  ${
-              isSearchMode ? "flex-col-reverse" : "flex-col"
+            className={`flex  text-xs text-slate-600 sm:text-sm  ${
+              isSearchMode ? "md:flex-col-reverse" : "md:flex-col items-center md:items-start  gap-3"
             }`}
           >
             {/* channelimage */}
             <ChannelImg searchmode={isSearchMode} />
-            <div className={`gap flex items-center text-[10px] md:text-sm`}>
-              <span className="mt-1 flex items-center gap-2 ">
+            <div className={` flex items-center text-[10px] md:text-sm`}>
+              <span className=" flex items-center gap-2 ">
                 <span title={viewCount}> {formatNumber(+viewCount)}</span> views
               </span>
               <span className="">
@@ -112,7 +112,7 @@ const VideoCard = ({ item }) => {
           </div>
           {isSearchMode && description && (
             <p title="from description" className="mt-2 text-[10px] md:text-sm">
-              {description.split("", 15).join("") + "..."}
+              {description}
             </p>
           )}
         </div>

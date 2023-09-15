@@ -16,19 +16,17 @@ const ChannelCard = ({ item }) => {
   return (
     <Link
       to={`/channel/${channelId}`}
-      className={`grid max-w-[800px] gap-2 pt-2  mx-auto transition-all  md:max-h-fit ${
-        isSearchMode ? "sm:grid-cols-2" : ""
-      } `}
+      className={`grid max-w-[800px] gap-1 py-3  mx-auto transition-all grid-cols-[30%,60%]  `}
     >
       <div className={`  ${styles.flexCenter}`}>
         <img
           src={"https:" + url2 || url1}
-          className=" max-w-[100px] max-h-[100px] rounded-full"
+          className=" max-w-[80px] max-h-[80px] rounded-full"
           alt="channel image"
         />
       </div>
       <div className="flex flex-col gap-y-1 text-sm text-slate-700">
-        <span className={`gap-x-3 ${styles.centerX}`}>
+        <span >
           <span className={` gap-3 ${styles.centerX}`}>
             {" "}
             {title}
@@ -42,7 +40,7 @@ const ChannelCard = ({ item }) => {
           @{title}
           <BsDot /> {subscriberCount} subscribers{" "}
         </span>
-        <p className="mt-4 text-[12px]">{description}</p>
+        <p className="mt-1 text-[10px] md:text-sm">{description}</p>
       </div>
     </Link>
   );

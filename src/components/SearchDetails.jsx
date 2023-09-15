@@ -18,7 +18,9 @@ const SearchDetails = () => {
       setMedias([...channels, ...videos]);
     });
   }, [searchTerm]);
-
+  useEffect(() => {
+    dispatch({ type: ToggleSearchMode, payload: false });
+  }, []);
   return (
     <div className={` ${styles.marginY} ${styles.paddingX}`}>
       <Videos medias={medias} />
