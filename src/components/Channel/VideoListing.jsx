@@ -81,7 +81,7 @@ const VideoListing = ({ data }) => {
       </div>
       <button
         onClick={() => setIsOpen(true)}
-        className={`mt-5 w-full   cursor-pointer justify-center rounded-md p-3  text-center text-2xl   ${
+        className={`mt-5 w-full xs:hidden  cursor-pointer justify-center rounded-md p-3  text-center text-2xl   ${
           isOpen ? "hidden" : "flex"
         } `}
       >
