@@ -67,12 +67,12 @@ const VideoListing = ({ data }) => {
           style={{
             height: isOpen
               ? parentHeight
-              : 120 * Math.floor(parent.current?.children.length / 2) + "px",
+              : 100 * Math.floor(parent.current?.children.length / 2) + "px",
           }}
         >
           <div ref={parent} className="flex flex-col">
             {data.data.map((el) => (
-              <div className="min-h-[120px] overflow-hidden py-2">
+              <div className="min-h-[100px] overflow-hidden py-2">
                 <ChannelVideoCard key={crypto.randomUUID()} item={el} />
               </div>
             ))}
@@ -81,7 +81,7 @@ const VideoListing = ({ data }) => {
       </div>
       <button
         onClick={() => setIsOpen(true)}
-        className={`mt-5 w-full xs:hidden  cursor-pointer justify-center rounded-md p-3  text-center text-2xl   ${
+        className={`mt-5 w-full cursor-pointer  justify-center rounded-md p-3 text-center  text-2xl xs:hidden   ${
           isOpen ? "hidden" : "flex"
         } `}
       >
