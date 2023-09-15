@@ -46,6 +46,7 @@ const VideoListing = ({ data }) => {
   useEffect(() => {
     if (parent.current) {
       setChildHeight(parent.current.children[0].offsetHeight);
+      setParentHeight(parent.current.offsetHeight);
       setTimeout(
         () => setParentHeight(parent.current.offsetHeight),
 
@@ -86,7 +87,7 @@ const VideoListing = ({ data }) => {
       </div>
       <button
         onClick={() => setIsOpen(true)}
-        className={`mt-5 w-full   cursor-pointer justify-center rounded-md bg-slate-100 p-3 text-center hover:bg-slate-200   ${
+        className={`mt-5 w-full   cursor-pointer justify-center rounded-md p-3  text-center text-2xl   ${
           isOpen ? "hidden" : "flex"
         } `}
       >
