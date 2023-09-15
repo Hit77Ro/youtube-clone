@@ -46,7 +46,11 @@ const VideoListing = ({ data }) => {
   useEffect(() => {
     if (parent.current) {
       setChildHeight(parent.current.children[0].offsetHeight);
-      setParentHeight(parent.current.offsetHeight);
+      setTimeout(
+        () => setParentHeight(parent.current.offsetHeight),
+
+        4000,
+      );
     }
   }, []);
   return (
