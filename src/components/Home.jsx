@@ -1,6 +1,7 @@
 import Videos from "./Videos";
 import { useStore } from "../Context/Context";
 import { useEffect } from "react";
+import styles from "../style";
 const Home = () => {
   const { medias, ToggleSearchMode, dispatch } = useStore();
   useEffect(() => {
@@ -8,7 +9,9 @@ const Home = () => {
   }, []);
   return (
     <>
-      <Videos medias={medias} />;
+      <div className={styles.paddingX}>
+        <Videos medias={medias} />;
+      </div>
     </>
   );
 };

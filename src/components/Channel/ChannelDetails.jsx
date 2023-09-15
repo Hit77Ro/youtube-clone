@@ -79,9 +79,9 @@ const ChannelDetails = () => {
   return (
     <div className={`min-h-screen px-4 `}>
       {meta.banner && (
-        <div className="flex h-[100px] overflow-hidden rounded-md lg:h-[300px]">
+        <div className="flex overflow-hidden rounded-md h-[300px]">
           <img
-            className="h-full flex-1"
+            className="h-full object-cover flex-1"
             src={
               meta?.banner[5]?.url ||
               meta?.banner[4]?.url ||
@@ -94,15 +94,15 @@ const ChannelDetails = () => {
         </div>
       )}
       <div className={``}>
-        <div className={`mt-[40px]  flex  flex-col items-center sm:flex-row`}>
+        <div className={`mt-5 text-center flex  flex-col items-center sm:flex-row`}>
           <div
             className={` max-w-[80px] overflow-hidden rounded-full md:max-w-[100px]  ${styles.flexCenter}`}
           >
             <img src={url3 || url2 || url1} alt="" className="object-contain" />
           </div>
-          <div className=" flex flex-col gap-2 p-4 text-slate-600">
+          <div className={`flex flex-col gap-2 p-4 text-slate-600 ${styles.paddingX}`}>
             <h2 className="text-lg text-slate-700"> {title} </h2>
-            <p className={`flex flex-wrap gap-2  ${styles.centerX}`}>
+            <p className={`flex flex-wrap gap-1  ${styles.centerX}`}>
               <span> {channelHandle} </span>
               <span> {subscriberCountText} subscribers </span>
               <span> {videosCount || 0} videos </span>
@@ -119,7 +119,7 @@ const ChannelDetails = () => {
             </Link>
           </div>
         </div>
-        <div className="mx-auto my-5 md:mx-0">
+        <div className="mx-auto max-w-[90%] my-5 md:mx-0">
           <Slider>
             {tabs.map(
               (el) =>

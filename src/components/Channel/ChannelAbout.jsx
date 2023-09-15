@@ -20,16 +20,16 @@ const ChannelAbout = () => {
   const { joinedDate, country, description, viewCount } = data;
   const views = viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   console.log(views);
-  const style = "border-b py-4 border-b-slate-200";
+  const style = "border-b xs:py-3  border-b-slate-200";
   console.log(data);
   return (
     <div className="grid gap-x-[10%] gap-y-3 sm:grid-cols-2" id="About">
       {description || country ? (
-        <div className="flex flex-col gap-6 border-b border-b-slate-200  py-4 text-slate-700">
+        <div className="flex flex-col gap-6 border-b border-b-slate-200 py-4 text-xs  text-slate-700 sm:text-sm">
           {description && (
             <div className="flex flex-col gap-6 ">
               <h3> Description : </h3>
-              <p>{description}</p>
+              <p className="">{description}</p>
             </div>
           )}
           {country && (
@@ -47,7 +47,7 @@ const ChannelAbout = () => {
       )}
 
       {/* stats */}
-      <div className="flex flex-col gap-1 text-slate-600">
+      <div className="flex flex-col gap-1 text-xs text-slate-600 sm:text-sm">
         <h3 className={`${style}`}>Stats</h3>
         <h3 className={`${style}`}> {JoinedDate(joinedDate)} </h3>
         <h3 className={`${style}`}> {views || 0} views</h3>
@@ -57,9 +57,3 @@ const ChannelAbout = () => {
 };
 
 export default ChannelAbout;
-
-const slider = ({ children, settings }) => {
-  {
-    children;
-  }
-};
