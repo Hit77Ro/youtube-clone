@@ -1,42 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Slider, { Slide } from "../../utils/Slider";
 import ChannelVideoCard from "./ChannelVideoCard";
 import { HiChevronDown } from "react-icons/hi2";
-const settings = {
-  speed: 500,
-  slidesToShow: 6,
-  slidesToScroll: 2,
-  responsive: [
-    {
-      breakpoint: 1324,
-      settings: {
-        slidesToShow: 6,
-        slidesToScroll: 1,
-      },
-    },
-    {
-      breakpoint: 990,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 1,
-      },
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
-      },
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-      },
-    },
-  ],
-};
+
 const VideoListing = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
   const parent = useRef();
@@ -44,14 +10,21 @@ const VideoListing = ({ data }) => {
   const [parentHeight, setParentHeight] = useState(0);
 
   useEffect(() => {
+    // Calculate and set the height of the first child element
     if (parent.current) {
       setChildHeight(parent.current.children[0].offsetHeight);
-      setParentHeight(parent.current.offsetHeight);
+      // Calculate and set the height of the parent element
+      setParentHeight(
+        isOpen
+          ? parent.current.offsetHeight
+          : childHeight * Math.floor(parent.current.children.length / 2),
+      );
     }
-  }, []);
+  }, [isOpen, childHeight]);
+
   return (
-    <div className={`flex-1  `}>
-      <h3 className="my-5 text-lg  font-bold"> {data.title} </h3>
+    <div className={`flex-1`}>
+      <h3 className="my-5 text-lg font-bold">{data.title}</h3>
       <div className="hidden xs:block">
         <Slider styling="py-2" settings={settings}>
           {data.data.map((el) => (
@@ -67,7 +40,8 @@ const VideoListing = ({ data }) => {
           style={{
             height: isOpen
               ? parentHeight
-              : 110 * Math.floor(parent.current?.children.length / 2) + "px",
+              : childHeight * Math.floor(parent.current?.children.length / 2) +
+                "px",
           }}
         >
           <div ref={parent} className="flex flex-col">
@@ -80,10 +54,10 @@ const VideoListing = ({ data }) => {
         </div>
       </div>
       <button
-        onClick={() => setIsOpen(true)}
-        className={`mt-5 w-full cursor-pointer  justify-center rounded-md p-3 text-center  text-2xl xs:hidden   ${
+        onClick={() => setIsOpen(!isOpen)} // Toggle the isOpen state
+        className={`mt-5 w-full cursor-pointer justify-center rounded-md p-3 text-center text-2xl xs:hidden ${
           isOpen ? "hidden" : "flex"
-        } `}
+        }`}
       >
         <HiChevronDown />
       </button>
