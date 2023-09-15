@@ -31,7 +31,7 @@ const VideoCard = ({ item }) => {
       >
         {" "}
         {searchmode && (
-          <span className=" block h-[20px] w-[20px] shrink-0 overflow-hidden  rounded-full">
+          <span className=" block h-[30px] w-[30px] shrink-0 overflow-hidden  rounded-full">
             <img src={url} alt="channelAvatar" />
             <img src={url || "https://placehold.co/400"} alt="channelAvatar" />
           </span>
@@ -63,7 +63,7 @@ const VideoCard = ({ item }) => {
       {/* image */}
       <Link
         to={`/watch/${videoId}`}
-        className={` relative flex  w-full overflow-hidden max-h-[90%] md:max-h-[200px] ${
+        className={` relative flex  rounded-md xs:rounded-none max-h-[96%] w-full overflow-hidden sm:max-h-[90%] md:max-h-[240px] ${
           isSearchMode && "rounded-lg"
         } `}
       >
@@ -95,7 +95,7 @@ const VideoCard = ({ item }) => {
         <div className="flex flex-col text-[15px] text-slate-700">
           {/* todo reverse when searchmode */}
           <div
-            className={`flex mt-2 flex-wrap gap-2  text-xs text-slate-600 sm:text-sm  ${
+            className={`mt-2 flex flex-wrap gap-2  text-xs text-slate-600 sm:text-sm  ${
               isSearchMode
                 ? "md:flex-col-reverse"
                 : "items-center gap-2 md:flex-col md:items-start"
@@ -116,7 +116,7 @@ const VideoCard = ({ item }) => {
             </div>
           </div>
           {isSearchMode && description && (
-            <p title="from description" className="mt-2 text-[10px] md:text-sm">
+            <p title="from description" className="mt-2 md:block hidden text-[10px] md:text-sm">
               {description}
             </p>
           )}
