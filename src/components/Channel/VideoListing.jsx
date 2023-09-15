@@ -16,17 +16,17 @@ const VideoListing = ({ data }) => {
       // Calculate and set the height of the parent element
       setParentHeight(
         isOpen
-          ? parent.current.offsetHeight
-          : childHeight * Math.floor(parent.current.children.length / 2),
+          ? parent.current?.offsetHeight
+          : childHeight * Math.round(parent.current?.children.length / 2),
       );
     }
-  }, [isOpen, childHeight]);
+  }, [childHeight]);
 
   return (
     <div className={`flex-1`}>
       <h3 className="my-5 text-lg font-bold">{data.title}</h3>
       <div className="hidden xs:block">
-        <Slider styling="py-2" settings={settings}>
+        <Slider styling="py-2">
           {data.data.map((el) => (
             <Slide styling="xs:p-1 xs:mx-0 mx-1">
               <ChannelVideoCard key={crypto.randomUUID()} item={el} />
@@ -38,15 +38,12 @@ const VideoListing = ({ data }) => {
         <div
           className="overflow-hidden transition-all"
           style={{
-            height: isOpen
-              ? parentHeight
-              : childHeight * Math.floor(parent.current?.children.length / 2) +
-                "px",
+            height: parentHeight + "px",
           }}
         >
           <div ref={parent} className="flex flex-col">
             {data.data.map((el) => (
-              <div className="min-h-[110px] overflow-hidden py-2">
+              <div className="overflow-hidden pt-2">
                 <ChannelVideoCard key={crypto.randomUUID()} item={el} />
               </div>
             ))}
