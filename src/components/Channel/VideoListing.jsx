@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import Slider, { Slide } from "../../utils/Slider";
 import ChannelVideoCard from "./ChannelVideoCard";
-
+import { HiChevronDown } from "react-icons/hi2";
 const settings = {
   speed: 500,
   slidesToShow: 6,
@@ -40,7 +40,8 @@ const settings = {
 const VideoListing = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
   const parent = useRef();
-  console.log(data);
+  const ChildHeight = parent.current?.children[0].offsetHeight;
+  const parentHeight = parent.current?.offsetHeight;
   return (
     <div className={`flex-1  `}>
       <h3 className="my-5 text-lg  font-bold"> {data.title} </h3>
@@ -55,25 +56,28 @@ const VideoListing = ({ data }) => {
       </div>
       <div className="xs:hidden">
         <div
-          className={`  mt-3 grid   overflow-hidden  transition-all   ${
-            isOpen ? "grid-rows-1" : "grid-rows-[minmax(0,100px)]"
-          }`}
+          className="overflow-hidden transition-all  "
+          style={{
+            height: isOpen
+              ? parentHeight + "px"
+              : ChildHeight * Math.max(0, 2) + "px",
+          }}
         >
-          <div className="overflow-hidden transition-all  ">
-            <div className="flex flex-col gap-2" ref={parent}>
-              {data.data.map((el) => (
-                <ChannelVideoCard key={crypto.randomUUID()} item={el} />
-              ))}
-            </div>
+          <div className="flex flex-col gap-2" ref={parent}>
+            {data.data.map((el) => (
+              <ChannelVideoCard key={crypto.randomUUID()} item={el} />
+            ))}
           </div>
         </div>
-        <button
-          onClick={() => setIsOpen((pre) => !pre)}
-          className={`mt-5 w-full  cursor-pointer rounded-md bg-slate-100 p-3 text-center hover:bg-slate-200  `}
-        >
-          {isOpen ? "show less" : "show more"}
-        </button>
       </div>
+      <button
+        onClick={() => setIsOpen(true)}
+        className={`mt-5 w-full   cursor-pointer justify-center rounded-md bg-slate-100 p-3 text-center hover:bg-slate-200   ${
+          isOpen ? "hidden" : "flex"
+        } `}
+      >
+        <HiChevronDown />
+      </button>
     </div>
   );
 };
