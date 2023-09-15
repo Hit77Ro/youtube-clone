@@ -7,7 +7,7 @@ const VideoListing = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
   const parent = useRef();
   const [childHeight, setChildHeight] = useState(
-    parent.current.children[0].offsetHeight,
+    parent.current?.children[0].offsetHeight,
   );
   const [parentHeight, setParentHeight] = useState(0);
 
@@ -37,7 +37,7 @@ const VideoListing = ({ data }) => {
           ))}
         </Slider>
       </div>
-      <div className="xs:hidden">
+      <div className="overflow-hidden xs:hidden">
         <div
           className="overflow-hidden transition-all"
           style={{
