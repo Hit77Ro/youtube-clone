@@ -8,13 +8,12 @@ const sliderStyles = ` scroll-smooth  overflow-auto flex snap-x snap-mandatory`;
 const Slider = ({
   children,
   styling,
-  settings,
   buttonStyling = "bg-white hover:bg-slate-100",
 }) => {
   const slides = useRef();
   const [isPrev, setIsPrev] = useState(false);
   const [isNext, setIsNext] = useState(true);
-  const [slideBy, setSlideBy] = useState(0); // Initialize to 0
+  const [slideBy, setSlideBy] = useState(0); 
 
   const move = (type) => {
     if (type === "next") {
