@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Slider, { Slide } from "../../utils/Slider";
 import ChannelVideoCard from "./ChannelVideoCard";
 
@@ -39,6 +39,7 @@ const settings = {
 };
 const VideoListing = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const parent = useRef();
   console.log(data);
   return (
     <div className={`flex-1  `}>
@@ -54,12 +55,12 @@ const VideoListing = ({ data }) => {
       </div>
       <div className="xs:hidden">
         <div
-          className={`  mt-3 grid  grid-rows-[800px] overflow-hidden  transition-all   ${
-            isOpen ? "grid-rows-1" : "grid-rows-[800px] "
+          className={`  mt-3 grid   overflow-hidden  transition-all   ${
+            isOpen ? "grid-rows-1" : "grid-rows-[minmax(0,100px)]"
           }`}
         >
           <div className="overflow-hidden transition-all  ">
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2" ref={parent}>
               {data.data.map((el) => (
                 <ChannelVideoCard key={crypto.randomUUID()} item={el} />
               ))}
