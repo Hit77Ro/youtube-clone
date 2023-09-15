@@ -40,7 +40,7 @@ const VideoListing = ({ data }) => {
             height: parentHeight + "px",
           }}
         >
-          <div ref={parent} className=" grid">
+          <div ref={parent} className="grid">
             {data.data.map((el) => (
               <div className="overflow-hidden pt-3">
                 <ChannelVideoCard key={crypto.randomUUID()} item={el} />
