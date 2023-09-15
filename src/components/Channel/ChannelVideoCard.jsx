@@ -5,7 +5,7 @@ import styles from "../../style";
 const ChannelVideoCard = ({ item, channelTitle }) => {
   const { lengthText, publishedTimeText, title, viewCount } = item;
   return (
-    <div className="grid h-full grid-cols-[45%,55%] gap-1  overflow-hidden rounded-md xs:grid-cols-1 xs:rounded-xl xs:shadow-md">
+    <div className="grid  grid-cols-[45%,55%] gap-1  overflow-hidden rounded-md xs:grid-cols-1 xs:rounded-xl xs:shadow-md">
       <div className="relative overflow-hidden">
         <img
           className="w-full rounded-md xs:rounded-none "

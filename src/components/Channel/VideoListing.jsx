@@ -47,11 +47,6 @@ const VideoListing = ({ data }) => {
     if (parent.current) {
       setChildHeight(parent.current.children[0].offsetHeight);
       setParentHeight(parent.current.offsetHeight);
-      setTimeout(
-        () => setParentHeight(parent.current.offsetHeight),
-
-        4000,
-      );
     }
   }, []);
   return (
@@ -68,19 +63,18 @@ const VideoListing = ({ data }) => {
       </div>
       <div className="xs:hidden">
         <div
-          className="overflow-hidden transition-all  "
+          className="overflow-hidden transition-all"
           style={{
             height: isOpen
-              ? parentHeight + "px"
-              : childHeight *
-                  Math.max(0, Math.round(parent.current?.children.length / 3)) +
-                parent.current?.children.length * 2 +
-                "px",
+              ? parentHeight
+              : 120 * Math.floor(parent.current?.children.length / 2) + "px",
           }}
         >
-          <div className="flex flex-col gap-2" ref={parent}>
+          <div ref={parent} className="flex flex-col">
             {data.data.map((el) => (
-              <ChannelVideoCard key={crypto.randomUUID()} item={el} />
+              <div className="min-h-[120px] overflow-hidden py-2">
+                <ChannelVideoCard key={crypto.randomUUID()} item={el} />
+              </div>
             ))}
           </div>
         </div>
