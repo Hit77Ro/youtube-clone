@@ -20,7 +20,8 @@ const VideoCard = ({ item }) => {
     viewCount,
     publishDate,
     publishedTimeText,
-    lengthText,
+    lengthText, 
+    isLive ,
     thumbnail: [{ url: url1 }, { url: url2 } = false],
   } = item;
   const ChannelImg = ({ searchmode }) => {
@@ -63,7 +64,7 @@ const VideoCard = ({ item }) => {
       {/* image */}
       <Link
         to={`/watch/${videoId}`}
-        className={` relative flex  rounded-md xs:rounded-none max-h-[96%] w-full overflow-hidden sm:max-h-[90%] md:max-h-[240px] ${
+        className={` relative flex  max-h-[96%] w-full overflow-hidden rounded-md xs:rounded-none sm:max-h-[90%] md:max-h-[240px] ${
           isSearchMode && "rounded-lg"
         } `}
       >
@@ -108,15 +109,19 @@ const VideoCard = ({ item }) => {
               <span className=" flex items-center gap-2 ">
                 <span title={viewCount}> {formatNumber(+viewCount)}</span> views
               </span>
-              <span className="">
-                {" "}
-                <BsDot />{" "}
-              </span>
-              <span title={publishDate}> {publishedTimeText} </span>
+              {!isLive && publishedTimeText && (
+                <>
+                  <BsDot />
+                  <span title={publishDate}> {publishedTimeText} </span>
+                </>
+              )}
             </div>
           </div>
           {isSearchMode && description && (
-            <p title="from description" className="mt-2 md:block hidden text-[10px] md:text-sm">
+            <p
+              title="from description"
+              className="mt-2 hidden text-[10px] md:block md:text-sm"
+            >
               {description}
             </p>
           )}

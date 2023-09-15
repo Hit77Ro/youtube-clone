@@ -3,7 +3,7 @@ import { formatNumber } from "../../utils/youtube";
 import styles from "../../style";
 
 const ChannelVideoCard = ({ item, channelTitle }) => {
-  const { lengthText, publishedTimeText, title, viewCount } = item;
+  const { lengthText, publishedTimeText, isLive, title, viewCount } = item;
   return (
     <div className="grid h-full  grid-cols-[45%,55%] gap-1  overflow-hidden rounded-md xs:grid-cols-1 xs:rounded-xl xs:shadow-md">
       <div className="relative overflow-hidden">
@@ -34,8 +34,12 @@ const ChannelVideoCard = ({ item, channelTitle }) => {
         {viewCount && (
           <p className={` mt-2 text-xs  text-slate-600 ${styles.centerX}`}>
             <span> {formatNumber(viewCount)} views </span>
-            <BsDot />
-            <span> {publishedTimeText} </span>
+            {!isLive && publishedTimeText && (
+              <>
+                <BsDot />
+                <span> {publishedTimeText} </span>
+              </>
+            )}
           </p>
         )}
       </div>
