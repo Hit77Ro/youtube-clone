@@ -10,7 +10,7 @@ const Videos = ({ medias }) => {
   if (medias.length <= 0) return <Loader />;
   return (
     <div
-      className={` grid gap-2
+      className={` grid gap-y-3 gapx-5
       ${
         isSearchMode
           ? "grid-cols-1 xl:mx-auto "

@@ -27,7 +27,7 @@ const VideoCard = ({ item }) => {
     return (
       <Link
         to={`/channel/${channelId}`}
-        className="mt-2 text-[11px] sm:text-sm leading-6 flex items-center gap-1"
+        className="mt-2 flex items-center gap-1 text-[11px] leading-6 sm:text-sm"
       >
         {" "}
         {searchmode && (
@@ -54,16 +54,21 @@ const VideoCard = ({ item }) => {
     <div
       className={`grid  overflow-hidden   ${
         isSearchMode
-          ? "  mx-auto  max-h-[250px] md:max-w-[800px] xs:grid-cols-2  grid-rows-[1fr] "
-          : "grid-cols-1 xs:rounded-lg   xs:shadow-md"
+          ? "  mx-auto  max-h-[350px] grid-rows-[1fr] xs:grid-cols-2  md:max-w-[800px] "
+          : "grid-cols-1 rounded-md xs:rounded-lg   xs:shadow-md"
       }`}
     >
       {/* image */}
-      <Link to={`/watch/${videoId}`} className={` relative flex  w-full overflow-hidden ${isSearchMode && "rounded-lg"} `}>
+      <Link
+        to={`/watch/${videoId}`}
+        className={` relative flex  w-full overflow-hidden ${
+          isSearchMode && "rounded-lg"
+        } `}
+      >
         <img
           src={url2 || url1}
           alt={title}
-          className={`${isSearchMode && " flex-1  object-fill"}`}
+          className={`${isSearchMode && " flex-1  "}`}
         />
         <span className="absolute bottom-1 right-1 rounded-md bg-black px-2 py-1 text-xs text-white ">
           {" "}
@@ -71,7 +76,7 @@ const VideoCard = ({ item }) => {
         </span>
       </Link>
       {/* content start */}
-      <div className="py-2 px-3">
+      <div className="px-3 py-2">
         <div className={`${styles.centerX} gap-2`}>
           {!isSearchMode && <Img />}
           <Link to={`/watch/${videoId}`}>
@@ -94,7 +99,7 @@ const VideoCard = ({ item }) => {
           >
             {/* channelimage */}
             <ChannelImg searchmode={isSearchMode} />
-            <div className={`gap text-[10px] md:text-sm flex items-center`}>
+            <div className={`gap flex items-center text-[10px] md:text-sm`}>
               <span className="mt-1 flex items-center gap-2 ">
                 <span title={viewCount}> {formatNumber(+viewCount)}</span> views
               </span>
@@ -107,7 +112,7 @@ const VideoCard = ({ item }) => {
           </div>
           {isSearchMode && description && (
             <p title="from description" className="mt-2 text-[10px] md:text-sm">
-              {description.split("",15).join("") + "..."}
+              {description.split("", 15).join("") + "..."}
             </p>
           )}
         </div>
