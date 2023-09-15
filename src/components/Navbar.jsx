@@ -61,7 +61,7 @@ const Navbar = () => {
               <input
                 minLength={5}
                 required
-                value={searchTerm}
+                value={window.innerWidth}
                 ref={input}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 type="search"
