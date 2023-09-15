@@ -40,7 +40,7 @@ const VideoListing = ({ data }) => {
             height: parentHeight + "px",
           }}
         >
-          <div ref={parent} className="flex justify-stretch flex-col  ">
+          <div ref={parent} className="flex flex-col justify-stretch  ">
             {data.data.map((el) => (
               <div className="overflow-hidden pt-3">
                 <ChannelVideoCard key={crypto.randomUUID()} item={el} />
