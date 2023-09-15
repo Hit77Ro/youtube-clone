@@ -67,12 +67,12 @@ const VideoListing = ({ data }) => {
           style={{
             height: isOpen
               ? parentHeight
-              : 100 * Math.floor(parent.current?.children.length / 2) + "px",
+              : 110 * Math.floor(parent.current?.children.length / 2) + "px",
           }}
         >
           <div ref={parent} className="flex flex-col">
             {data.data.map((el) => (
-              <div className="min-h-[100px] overflow-hidden py-2">
+              <div className="min-h-[110px] overflow-hidden py-2">
                 <ChannelVideoCard key={crypto.randomUUID()} item={el} />
               </div>
             ))}
