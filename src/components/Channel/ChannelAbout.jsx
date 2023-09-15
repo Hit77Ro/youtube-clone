@@ -20,7 +20,7 @@ const ChannelAbout = () => {
   const { joinedDate, country, description, viewCount } = data;
   const views = viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   console.log(views);
-  const style = "border-b xs:py-3  border-b-slate-200";
+  const style = "border-b  px-3 py-1 xs:py-3  border-b-slate-200";
   console.log(data);
   return (
     <div className="grid gap-x-[10%] gap-y-3 sm:grid-cols-2" id="About">
@@ -47,7 +47,7 @@ const ChannelAbout = () => {
       )}
 
       {/* stats */}
-      <div className="flex flex-col gap-1 text-xs text-slate-600 sm:text-sm">
+      <div className="flex flex-col gap-6 items-start text-xs text-slate-600 sm:text-sm">
         <h3 className={`${style}`}>Stats</h3>
         <h3 className={`${style}`}> {JoinedDate(joinedDate)} </h3>
         <h3 className={`${style}`}> {views || 0} views</h3>

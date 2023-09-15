@@ -21,10 +21,9 @@ const ChannelDetails = () => {
   const { id } = useParams();
   const HomeRef = useRef();
 
-
-  useEffect(() => { 
+  useEffect(() => {
     HomeRef.current?.scrollIntoView();
-  } , [])
+  }, []);
   useEffect(() => {
     const pre = PossibleTabs.find((el) =>
       location.pathname.includes(el.toLowerCase()),
@@ -79,47 +78,51 @@ const ChannelDetails = () => {
   return (
     <div className={`min-h-screen px-4 `}>
       {meta.banner && (
-        <div className="flex overflow-hidden rounded-md h-[300px]">
+        <div className="flex h-[240px] overflow-hidden rounded-md">
           <img
-            className="h-full object-cover flex-1"
+            className="h-full flex-1 object-cover"
             src={
               meta?.banner[5]?.url ||
               meta?.banner[4]?.url ||
               meta?.banner[2]?.url ||
               meta?.banner[1]?.url ||
-              meta?.banner[0]?.url 
+              meta?.banner[0]?.url
             }
             alt="channel banner"
           />
         </div>
       )}
       <div className={``}>
-        <div className={`mt-5 text-center flex  flex-col items-center sm:flex-row`}>
+        <div className={`mt-5  flex  flex-col items-center sm:flex-row`}>
           <div
             className={` max-w-[80px] overflow-hidden rounded-full md:max-w-[100px]  ${styles.flexCenter}`}
           >
             <img src={url3 || url2 || url1} alt="" className="object-contain" />
           </div>
-          <div className={`flex flex-col gap-2 p-4 text-slate-600 ${styles.paddingX}`}>
-            <h2 className="text-lg text-slate-700"> {title} </h2>
-            <p className={`flex flex-wrap gap-1  ${styles.centerX}`}>
+          <div
+            className={` flex flex-col  items-center gap-[6px] p-4 text-slate-600 ${styles.paddingX}`}
+          >
+            <h2 className="text-sm text-slate-700 md:text-lg"> {title} </h2>
+            <p
+              className={`flex flex-wrap gap-1  text-center text-xs  ${styles.centerX}`}
+            >
               <span> {channelHandle} </span>
               <span> {subscriberCountText} subscribers </span>
               <span> {videosCount || 0} videos </span>
             </p>
             <Link
               to={`/channel/${id}/about`}
-              className={`max-w-[540px]  text-left text-sm ${styles.centerX}`}
+              className={`  text-left text-xs sm:text-sm ${styles.centerX}`}
               onClick={(e) => aboutButton.current?.scrollIntoView()}
             >
-              {description.split(" ", 10).join(",") + "..."}
+              {description.split(" ", 20).join(" ") + "..."}
               <span className="text-2xl text-slate-500">
                 <BiChevronRight />
               </span>
             </Link>
           </div>
         </div>
-        <div className="mx-auto max-w-[90%] my-5 md:mx-0">
+        <div className="mx-auto my-5 max-w-[90%] md:mx-0">
           <Slider>
             {tabs.map(
               (el) =>
@@ -134,7 +137,7 @@ const ChannelDetails = () => {
           </Slider>
         </div>
 
-        <div className={` relative   min-h-[500px]  py-10`}>
+        <div className={` relative   min-h-[500px]  py-5`}>
           <Outlet />
         </div>
       </div>
