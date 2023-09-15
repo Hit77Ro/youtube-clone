@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Slider, { Slide } from "../../utils/Slider";
 import ChannelVideoCard from "./ChannelVideoCard";
 import { HiChevronDown } from "react-icons/hi2";
@@ -40,8 +40,15 @@ const settings = {
 const VideoListing = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
   const parent = useRef();
-  const ChildHeight = parent.current?.children[0].offsetHeight;
-  const parentHeight = parent.current?.offsetHeight;
+  const [childHeight, setChildHeight] = useState(0);
+  const [parentHeight, setParentHeight] = useState(0);
+
+  useEffect(() => {
+    if (parent.current) {
+      setChildHeight(parent.current.children[0].offsetHeight);
+      setParentHeight(parent.current.offsetHeight);
+    }
+  }, []);
   return (
     <div className={`flex-1  `}>
       <h3 className="my-5 text-lg  font-bold"> {data.title} </h3>
@@ -60,7 +67,10 @@ const VideoListing = ({ data }) => {
           style={{
             height: isOpen
               ? parentHeight + "px"
-              : ChildHeight * Math.max(0, 2) + "px",
+              : childHeight *
+                  Math.max(0, Math.round(parent.current?.children.length / 3)) +
+                parent.current?.children.length * 2 +
+                "px",
           }}
         >
           <div className="flex flex-col gap-2" ref={parent}>
