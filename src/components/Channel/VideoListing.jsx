@@ -6,7 +6,9 @@ import { HiChevronDown } from "react-icons/hi2";
 const VideoListing = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
   const parent = useRef();
-  const [childHeight, setChildHeight] = useState(0);
+  const [childHeight, setChildHeight] = useState(
+    parent.current.children[0].offsetHeight,
+  );
   const [parentHeight, setParentHeight] = useState(0);
 
   useEffect(() => {
@@ -20,8 +22,8 @@ const VideoListing = ({ data }) => {
           : childHeight * Math.round(parent.current?.children.length / 2),
       );
     }
-    console.log(childHeight)
-  }, [isOpen ,childHeight]);
+    console.log(childHeight);
+  }, [isOpen, childHeight]);
 
   return (
     <div className={`flex-1`}>
