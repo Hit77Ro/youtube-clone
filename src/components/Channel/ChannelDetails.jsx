@@ -110,16 +110,18 @@ const ChannelDetails = () => {
               <span> {subscriberCountText} subscribers </span>
               <span> {videosCount || 0} videos </span>
             </p>
-            <Link
-              to={`/channel/${id}/about`}
-              className={`  text-left text-xs sm:text-sm ${styles.centerX}`}
-              onClick={(e) => aboutButton.current?.scrollIntoView()}
-            >
-              {description && description.split(" ", 20).join(" ") + "..."}
-              <span className="text-2xl text-slate-500">
-                <BiChevronRight />
-              </span>
-            </Link>
+            {description && (
+              <Link
+                to={`/channel/${id}/about`}
+                className={`  text-left text-xs sm:text-sm ${styles.centerX}`}
+                onClick={(e) => aboutButton.current?.scrollIntoView()}
+              >
+                {description.split(" ", 20).join(" ") + "..."}
+                <span className="text-2xl text-slate-500">
+                  <BiChevronRight />
+                </span>
+              </Link>
+            )}
           </div>
         </div>
         <div className="mx-auto my-5 max-w-[90%] md:mx-0">
