@@ -27,7 +27,7 @@ const VideoCard = ({ item }) => {
     return (
       <Link
         to={`/channel/${channelId}`}
-        className="mt-2 flex items-center gap-1 text-[11px] leading-6 sm:text-sm"
+        className=" flex items-center gap-1 text-[11px] leading-6 sm:text-sm"
       >
         {" "}
         {searchmode && (
@@ -37,7 +37,9 @@ const VideoCard = ({ item }) => {
           </span>
         )}
         <span title={channelTitle}>{channelTitle} </span>
-        <span className="text-[13px] hidden md:block">{<AiFillCheckCircle />} </span>
+        <span className="hidden text-[13px] md:block">
+          {<AiFillCheckCircle />}{" "}
+        </span>
       </Link>
     );
   };
@@ -54,21 +56,21 @@ const VideoCard = ({ item }) => {
     <div
       className={`grid  overflow-hidden   ${
         isSearchMode
-          ? "  mx-auto  max-h-[270px] overflow-hidden grid-rows-[1fr] xs:grid-cols-[40%,60%]  md:max-w-[900px] "
+          ? "  mx-auto  max-h-[300px] grid-rows-[1fr] overflow-hidden xs:grid-cols-[40%,60%]  md:max-w-[900px] "
           : "grid-cols-1 rounded-md xs:rounded-lg   xs:shadow-md"
       }`}
     >
       {/* image */}
       <Link
         to={`/watch/${videoId}`}
-        className={` relative flex  w-full overflow-hidden ${
+        className={` relative flex  w-full overflow-hidden max-h-[90%] md:max-h-[200px] ${
           isSearchMode && "rounded-lg"
         } `}
       >
         <img
           src={url2 || url1}
           alt={title}
-          className={`${isSearchMode && " flex-1  "}`}
+          className={`${isSearchMode && "scxd5 mm  "}`}
         />
         <span className="absolute bottom-1 right-1 rounded-md bg-black px-2 py-1 text-xs text-white ">
           {" "}
@@ -93,13 +95,16 @@ const VideoCard = ({ item }) => {
         <div className="flex flex-col text-[15px] text-slate-700">
           {/* todo reverse when searchmode */}
           <div
-            className={`flex  text-xs text-slate-600 sm:text-sm  ${
-              isSearchMode ? "md:flex-col-reverse" : "md:flex-col items-center md:items-start  gap-3"
+            className={`flex mt-2 flex-wrap gap-2  text-xs text-slate-600 sm:text-sm  ${
+              isSearchMode
+                ? "md:flex-col-reverse"
+                : "items-center gap-2 md:flex-col md:items-start"
             }`}
           >
             {/* channelimage */}
+
             <ChannelImg searchmode={isSearchMode} />
-            <div className={` flex items-center text-[10px] md:text-sm`}>
+            <div className={` flex items-center  text-[10px] md:text-sm`}>
               <span className=" flex items-center gap-2 ">
                 <span title={viewCount}> {formatNumber(+viewCount)}</span> views
               </span>

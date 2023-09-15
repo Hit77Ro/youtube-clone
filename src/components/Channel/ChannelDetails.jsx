@@ -100,7 +100,7 @@ const ChannelDetails = () => {
             <img src={url3 || url2 || url1} alt="" className="object-contain" />
           </div>
           <div
-            className={` flex flex-col md:items-start md:max-w-[800px] items-center gap-[6px] p-4 text-slate-600 ${styles.paddingX}`}
+            className={` flex flex-col items-center gap-[6px] p-4 text-slate-600 md:max-w-[800px] md:items-start ${styles.paddingX}`}
           >
             <h2 className="text-sm text-slate-700 md:text-lg"> {title} </h2>
             <p
@@ -115,7 +115,7 @@ const ChannelDetails = () => {
               className={`  text-left text-xs sm:text-sm ${styles.centerX}`}
               onClick={(e) => aboutButton.current?.scrollIntoView()}
             >
-              {description.split(" ", 20).join(" ") + "..."}
+              {description && description.split(" ", 20).join(" ") + "..."}
               <span className="text-2xl text-slate-500">
                 <BiChevronRight />
               </span>
