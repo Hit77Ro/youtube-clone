@@ -6,16 +6,12 @@ import { HiChevronDown } from "react-icons/hi2";
 const VideoListing = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
   const parent = useRef();
-  const [childHeight, setChildHeight] = useState(
-    parent.current?.children[0].offsetHeight,
-  );
+  const [childHeight, setChildHeight] = useState(0);
   const [parentHeight, setParentHeight] = useState(0);
 
   useEffect(() => {
-    // Calculate and set the height of the first child element
     if (parent.current) {
       setChildHeight(parent.current.children[0].offsetHeight);
-      // Calculate and set the height of the parent element
       setParentHeight(
         isOpen
           ? parent.current?.offsetHeight
@@ -37,16 +33,16 @@ const VideoListing = ({ data }) => {
           ))}
         </Slider>
       </div>
-      <div className="overflow-hidden xs:hidden">
+      <div className=" xs:hidden">
         <div
           className="overflow-hidden transition-all"
           style={{
             height: parentHeight + "px",
           }}
         >
-          <div ref={parent} className="flex flex-col">
+          <div ref={parent} className="flex flex-col  ">
             {data.data.map((el) => (
-              <div className="overflow-hidden pt-2">
+              <div className="overflow-hidden pt-3">
                 <ChannelVideoCard key={crypto.randomUUID()} item={el} />
               </div>
             ))}
