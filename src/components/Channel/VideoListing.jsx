@@ -10,6 +10,20 @@ const VideoListing = ({ data }) => {
   const [parentHeight, setParentHeight] = useState(0);
 
   useEffect(() => {
+    const _ = () => {
+      if (parent.current) {
+        setChildHeight(parent.current.children[0].offsetHeight);
+        setParentHeight(
+          isOpen
+            ? parent.current?.offsetHeight
+            : childHeight * Math.round(parent.current?.children.length / 2),
+        );
+      }
+    };
+    window.addEventListener("resize", _);
+    console.log(childHeight);
+  }, [isOpen, childHeight, window.innerWidth]);
+  useEffect(() => {
     if (parent.current) {
       setChildHeight(parent.current.children[0].offsetHeight);
       setParentHeight(
@@ -18,8 +32,57 @@ const VideoListing = ({ data }) => {
           : childHeight * Math.round(parent.current?.children.length / 2),
       );
     }
+    if (parent.current) {
+      setChildHeight(parent.current.children[0].offsetHeight);
+      setParentHeight(
+        isOpen
+          ? parent.current?.offsetHeight
+          : childHeight * Math.round(parent.current?.children.length / 2),
+      );
+    }
+    window.addEventListener("resize", () => {});
     console.log(childHeight);
-  }, [isOpen, childHeight]);
+  }, [isOpen, childHeight, window.innerWidth]);
+  useEffect(() => {
+    if (parent.current) {
+      setChildHeight(parent.current.children[0].offsetHeight);
+      setParentHeight(
+        isOpen
+          ? parent.current?.offsetHeight
+          : childHeight * Math.round(parent.current?.children.length / 2),
+      );
+    }
+    if (parent.current) {
+      setChildHeight(parent.current.children[0].offsetHeight);
+      setParentHeight(
+        isOpen
+          ? parent.current?.offsetHeight
+          : childHeight * Math.round(parent.current?.children.length / 2),
+      );
+    }
+    window.addEventListener("resize", () => {});
+    console.log(childHeight);
+  }, [isOpen, childHeight, window.innerWidth]);
+  useEffect(() => {
+    if (parent.current) {
+      setChildHeight(parent.current.children[0].offsetHeight);
+      setParentHeight(
+        isOpen
+          ? parent.current?.offsetHeight
+          : childHeight * Math.round(parent.current?.children.length / 2),
+      );
+    }
+    if (parent.current) {
+      setChildHeight(parent.current.children[0].offsetHeight);
+      setParentHeight(
+        isOpen
+          ? parent.current?.offsetHeight
+          : childHeight * Math.round(parent.current?.children.length / 2),
+      );
+    }
+    window.addEventListener("resize", () => {});
+    console.log(childHeight);
+  }, [isOpen, childHeight, window.innerWidth]);
 
   return (
     <div className={`flex-1`}>
@@ -51,7 +114,7 @@ const VideoListing = ({ data }) => {
       </div>
       <button
         onClick={() => setIsOpen(true)} // Toggle the isOpen state
-        className={`mt-2 w-full cursor-pointer justify-center text-slate-700 rounded-md p-3 text-center text-2xl xs:hidden ${
+        className={`mt-2 w-full cursor-pointer justify-center rounded-md p-3 text-center text-2xl text-slate-700 xs:hidden ${
           isOpen ? "hidden" : "flex"
         }`}
       >

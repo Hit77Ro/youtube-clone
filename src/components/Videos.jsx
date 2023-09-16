@@ -1,5 +1,4 @@
 import { useStore } from "../Context/Context";
-import styles from "../style";
 import VideosPlaylist from "./VideosPlaylist";
 import VideoCard from "./VideoCard";
 import Loader from "../utils/Loader";
@@ -10,13 +9,11 @@ const Videos = ({ medias }) => {
   if (medias.length <= 0) return <Loader />;
   return (
     <div
-      className={` grid  xs:gap-5
-      ${
+      className={`grid  gap-3 ${
         isSearchMode
-          ? "grid-cols-1 xl:mx-auto "
-          : " xs:grid-cols-[repeat(auto-fit,minmax(312px,1fr))] "
-      }
-        `}
+          ? "grid-cols-1"
+          : `grid-cols-[repeat(auto-fit,minmax(220px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] `
+      }`}
     >
       {isSearchMode
         ? medias.map((item, idx) =>

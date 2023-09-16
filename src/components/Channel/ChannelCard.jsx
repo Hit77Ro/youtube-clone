@@ -16,7 +16,7 @@ const ChannelCard = ({ item }) => {
   return (
     <Link
       to={`/channel/${channelId}`}
-      className={`grid max-w-[800px] gap-1 py-3  mx-auto transition-all grid-cols-[30%,60%]  `}
+      className={`grid  gap-1 py-4  transition-all grid-cols-[1fr,1fr]  `}
     >
       <div className={`  ${styles.flexCenter}`}>
         <img

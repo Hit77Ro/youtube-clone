@@ -54,29 +54,23 @@ const VideoCard = ({ item }) => {
   );
   return (
     <div
-      className={`grid min-h-[200px]  grid-cols-1 min-w-[312px] overflow-hidden   ${
-        isSearchMode
-          ? "  lg:mx-auto    xs:grid-cols-2 gap-x-5  md:max-w-[1000px] "
-          : " rounded-md "
-      }`}
+      className={`grid grid-rows-[60%,auto] gap-2     
+      ${isSearchMode && " xs:flex-row"}`}
     >
       {/* image */}
       <Link
         to={`/watch/${videoId}`}
-        className={` min-[100px] relative flex h-[166px] md:h-[200px]  w-full overflow-hidden rounded-2xl  max-w-full `}
+        className={`relative  flex min-h-[200px]
+        overflow-hidden max-h-[250px] rounded-lg xs:min-h-[120px]    md:rounded-2xl `}
       >
-        <img
-          src={url2 || url1}
-          alt={title}
-          className={`${isSearchMode && "scxd5 mm  "}`}
-        />
-        <span className="absolute bottom-1 right-1 rounded-md object-contain bg-black px-2 py-1 text-xs text-white ">
+        <img src={url2 || url1} alt={title} />
+        <span className="absolute bottom-1 right-1 rounded-md bg-black object-contain px-2 py-1 text-xs text-white ">
           {" "}
           {lengthText}{" "}
         </span>
       </Link>
       {/* content start */}
-      <div className=" py-2">
+      <div className="py-2">
         <div className={`${styles.centerX}  gap-2`}>
           {!isSearchMode && <Img />}
           <div className="">
