@@ -54,7 +54,7 @@ const VideoCard = ({ item }) => {
   );
   return (
     <div
-      className={`grid grid-rows-[1fr,auto] gap-2     
+      className={`flex flex-col gap-2     
       ${isSearchMode && " xs:flex-row"}`}
     >
       {/* image */}
