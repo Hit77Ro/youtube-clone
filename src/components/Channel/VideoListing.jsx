@@ -51,7 +51,7 @@ const VideoListing = ({ data }) => {
       </div>
       <button
         onClick={() => setIsOpen(true)} // Toggle the isOpen state
-        className={`mt-5 w-full cursor-pointer justify-center rounded-md p-3 text-center text-2xl xs:hidden ${
+        className={`mt-2 w-full cursor-pointer justify-center text-slate-700 rounded-md p-3 text-center text-2xl xs:hidden ${
           isOpen ? "hidden" : "flex"
         }`}
       >
