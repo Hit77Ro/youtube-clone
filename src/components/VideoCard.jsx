@@ -63,16 +63,14 @@ const VideoCard = ({ item }) => {
       {/* image */}
       <Link
         to={`/watch/${videoId}`}
-        className={` min-[100px] relative flex max-h-[96%] w-full overflow-hidden rounded-2xl sm:max-h-[90%] md:max-h-[240px] ${
-          isSearchMode && "rounded-lg"
-        } `}
+        className={` min-[100px] relative flex h-[194px]  w-full overflow-hidden rounded-2xl  max-w-full `}
       >
         <img
           src={url2 || url1}
           alt={title}
           className={`${isSearchMode && "scxd5 mm  "}`}
         />
-        <span className="absolute bottom-1 right-1 rounded-md bg-black px-2 py-1 text-xs text-white ">
+        <span className="absolute bottom-1 right-1 rounded-md object-contain bg-black px-2 py-1 text-xs text-white ">
           {" "}
           {lengthText}{" "}
         </span>

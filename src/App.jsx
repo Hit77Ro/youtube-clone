@@ -26,7 +26,7 @@ const App = () => {
     <Router>
       <div
         className={` pt-[70px]  transition-[0.5s] ${
-          isSidebarOpen ? "md:ml-[240px]" : ""
+          isSidebarOpen ? "lg:ml-[240px]" : ""
         } 
           ${isSearchMode ? "md:container" : ""} 
         `}

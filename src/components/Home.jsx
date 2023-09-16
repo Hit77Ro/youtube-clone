@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <>
       <div className={styles.paddingX}>
-        <Videos medias={medias} />;
+        <Videos medias={medias} />
       </div>
     </>
   );
