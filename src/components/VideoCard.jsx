@@ -54,16 +54,16 @@ const VideoCard = ({ item }) => {
   );
   return (
     <div
-      className={`grid min-h-[200px]  overflow-hidden   ${
+      className={`grid min-h-[200px]  grid-cols-1 min-w-[312px] overflow-hidden   ${
         isSearchMode
-          ? "  mx-auto  max-h-[300px] grid-rows-[1fr] xs:grid-cols-[40%,60%]  md:max-w-[900px] "
-          : "grid-cols-1 rounded-md "
+          ? "  lg:mx-auto    xs:grid-cols-2 gap-x-5  md:max-w-[1000px] "
+          : " rounded-md "
       }`}
     >
       {/* image */}
       <Link
         to={`/watch/${videoId}`}
-        className={` min-[100px] relative flex h-[194px]  w-full overflow-hidden rounded-2xl  max-w-full `}
+        className={` min-[100px] relative flex h-[166px] md:h-[200px]  w-full overflow-hidden rounded-2xl  max-w-full `}
       >
         <img
           src={url2 || url1}
