@@ -10,18 +10,12 @@ const JoinedDate = (date) => {
   return `joined ${months[M]} ${D} , ${Y}`;
 };
 const ChannelAbout = () => {
-  // const  {id}= useParams()
-  // useEffect(() => {
-  //   FetchApi(`channel/about?id=${id}`).then((d) => console.log(d));
-  // }, [id]);
   const { data, id } = useChannelFetcher("about");
   if (!data) return <Loader styling="absolute h-full w-full" />;
 
   const { joinedDate, country, description, viewCount } = data;
   const views = viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  console.log(views);
   const style = "border-b  px-3 py-1 xs:py-3  border-b-slate-200";
-  console.log(data);
   return (
     <div className="grid gap-x-[10%] gap-y-3 sm:grid-cols-2" id="About">
       {description || country ? (

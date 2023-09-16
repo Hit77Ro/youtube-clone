@@ -9,17 +9,23 @@ const SearchDetails = () => {
   const [medias, setMedias] = useState([]);
   const { dispatch, ToggleSearchMode } = useStore();
   const { searchTerm } = useParams();
+
   useEffect(() => {
+    // Use a function to update the search mode when the component mounts
     dispatch({ type: ToggleSearchMode, payload: true });
+
     FetchApi(`search?query=${searchTerm}`).then((res) => {
       if (!res.data) return;
       const channels = res.data.filter((el) => el.type === "channel");
       const videos = res.data.filter((el) => el.type === "video");
       setMedias([...channels, ...videos]);
     });
-  }, [searchTerm]);
+  }, [dispatch, ToggleSearchMode, searchTerm]); // Include dispatch and ToggleSearchMode in the dependency array
+
   return (
-    <div className={`container max-w-[1200px]  mx-auto ${styles.marginY} ${styles.paddingX}`}>
+    <div
+      className={`container mx-auto  max-w-[1200px] ${styles.marginY} ${styles.paddingX}`}
+    >
       <Videos medias={medias} />
     </div>
   );

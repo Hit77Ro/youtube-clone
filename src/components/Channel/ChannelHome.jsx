@@ -5,7 +5,6 @@ import useChannelFetcher from "../../utils/useChannelFetcher";
 
 const ChannelHome = ({}) => {
   const { data: obj, id } = useChannelFetcher("home");
-  console.log(obj);
   if (!obj) return <Loader styling="absolute" />;
   const Player = ({ item }) => (
     <div className="player-wrapper flex flex-1 gap-4 overflow-hidden  rounded-md md:rounded-lg ">
@@ -20,7 +19,6 @@ const ChannelHome = ({}) => {
       </div>
     </div>
   );
-  console.log(obj);
   return (
     <div className="flex flex-col">
       {obj.data.map(

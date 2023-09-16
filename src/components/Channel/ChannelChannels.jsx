@@ -11,7 +11,6 @@ const ChannelChannels = () => {
   if (!data) return <Loader styling="absolute h-full w-full" />;
 
   const channels = data.data;
-  console.log(channels);
 
   const ChannelCard = ({ el }) => (
     <Link

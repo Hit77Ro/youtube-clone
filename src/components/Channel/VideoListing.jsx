@@ -4,10 +4,10 @@ import ChannelVideoCard from "./ChannelVideoCard";
 import { HiChevronDown } from "react-icons/hi2";
 
 const VideoListing = ({ data }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const parent = useRef();
   const [childHeight, setChildHeight] = useState(0);
   const [parentHeight, setParentHeight] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+  const parent = useRef();
 
   useEffect(() => {
     const _ = () => {
@@ -23,72 +23,13 @@ const VideoListing = ({ data }) => {
     _();
     window.addEventListener("resize", _);
     return () => window.removeEventListener("resize", _);
-    console.log(childHeight);
-  }, [isOpen, childHeight, window.innerWidth]);
-  useEffect(() => {
-    if (parent.current) { 
-      setChildHeight(parent.current.children[0].offsetHeight);
-      setParentHeight(
-        isOpen
-          ? parent.current?.offsetHeight
-          : childHeight * Math.round(parent.current?.children.length / 2),
-      );
-    }
-    if (parent.current) {
-      setChildHeight(parent.current.children[0].offsetHeight);
-      setParentHeight(
-        isOpen
-          ? parent.current?.offsetHeight
-          : childHeight * Math.round(parent.current?.children.length / 2),
-      );
-    }
-    window.addEventListener("resize", () => {});
-    console.log(childHeight);
-  }, [isOpen, childHeight, window.innerWidth]);
-  useEffect(() => {
-    if (parent.current) {
-      setChildHeight(parent.current.children[0].offsetHeight);
-      setParentHeight(
-        isOpen
-          ? parent.current?.offsetHeight
-          : childHeight * Math.round(parent.current?.children.length / 2),
-      );
-    }
-    if (parent.current) {
-      setChildHeight(parent.current.children[0].offsetHeight);
-      setParentHeight(
-        isOpen
-          ? parent.current?.offsetHeight
-          : childHeight * Math.round(parent.current?.children.length / 2),
-      );
-    }
-    window.addEventListener("resize", () => {});
-    console.log(childHeight);
-  }, [isOpen, childHeight, window.innerWidth]);
-  useEffect(() => {
-    if (parent.current) {
-      setChildHeight(parent.current.children[0].offsetHeight);
-      setParentHeight(
-        isOpen
-          ? parent.current?.offsetHeight
-          : childHeight * Math.round(parent.current?.children.length / 2),
-      );
-    }
-    if (parent.current) {
-      setChildHeight(parent.current.children[0].offsetHeight);
-      setParentHeight(
-        isOpen
-          ? parent.current?.offsetHeight
-          : childHeight * Math.round(parent.current?.children.length / 2),
-      );
-    }
-    window.addEventListener("resize", () => {});
-    console.log(childHeight);
   }, [isOpen, childHeight, window.innerWidth]);
 
   return (
     <div className={`flex-1`}>
-      <h3 className="my-5 text-lg font-bold">{data.title}</h3>
+      <h3 className="my-2 text-lg font-semibold text-slate-800">
+        {data.title}
+      </h3>
       <div className="hidden xs:block">
         <Slider styling="py-2">
           {data.data.map((el) => (

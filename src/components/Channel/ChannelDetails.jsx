@@ -13,6 +13,7 @@ const PossibleTabs = [
   "Live",
   "About",
 ];
+
 import Slider, { Slide } from "../../utils/Slider";
 const ChannelDetails = () => {
   const aboutButton = useRef();
@@ -35,7 +36,7 @@ const ChannelDetails = () => {
       .then((d) => {
         setChannel(d);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   }, [id]);
 
   if (!channel) return <Loader />;

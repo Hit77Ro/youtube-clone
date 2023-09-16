@@ -2,14 +2,12 @@ import { useEffect } from "react";
 import Loader from "../../utils/Loader";
 import useChannelFetcher from "../../utils/useChannelFetcher";
 import ChannelVideoCard from "./ChannelVideoCard";
-import { FetchApi } from "../../utils/api";
 import styles from "../../style";
 
 const ChannelVideos = () => {
   const { data, id } = useChannelFetcher("videos");
   if (!data) return <Loader />;
   const videos = data.data;
-  console.log(data);
   return (
     <div>
       {videos.length <= 0 && <h1> {data.msq}</h1>}
