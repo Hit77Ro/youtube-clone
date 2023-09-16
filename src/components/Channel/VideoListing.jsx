@@ -20,11 +20,13 @@ const VideoListing = ({ data }) => {
         );
       }
     };
+    _();
     window.addEventListener("resize", _);
+    return () => window.removeEventListener("resize", _);
     console.log(childHeight);
   }, [isOpen, childHeight, window.innerWidth]);
   useEffect(() => {
-    if (parent.current) {
+    if (parent.current) { 
       setChildHeight(parent.current.children[0].offsetHeight);
       setParentHeight(
         isOpen
