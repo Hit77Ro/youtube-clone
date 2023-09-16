@@ -20,9 +20,9 @@ const ChannelHome = ({}) => {
       </div>
     </div>
   );
-console.log(obj)
+  console.log(obj);
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col">
       {obj.data.map(
         (el) =>
           el.type === "player" ? (
