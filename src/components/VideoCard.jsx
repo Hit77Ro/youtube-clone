@@ -20,8 +20,8 @@ const VideoCard = ({ item }) => {
     viewCount,
     publishDate,
     publishedTimeText,
-    lengthText, 
-    isLive ,
+    lengthText,
+    isLive,
     thumbnail: [{ url: url1 }, { url: url2 } = false],
   } = item;
   const ChannelImg = ({ searchmode }) => {
@@ -54,16 +54,16 @@ const VideoCard = ({ item }) => {
   );
   return (
     <div
-      className={`grid min-h-[200px] overflow-hidden   ${
+      className={`grid min-h-[200px]  overflow-hidden   ${
         isSearchMode
-          ? "  mx-auto  max-h-[300px] grid-rows-[1fr] overflow-hidden xs:grid-cols-[40%,60%]  md:max-w-[900px] "
-          : "grid-cols-1 rounded-md xs:rounded-lg   xs:shadow-md"
+          ? "  mx-auto  max-h-[300px] grid-rows-[1fr] xs:grid-cols-[40%,60%]  md:max-w-[900px] "
+          : "grid-cols-1 rounded-md "
       }`}
     >
       {/* image */}
       <Link
         to={`/watch/${videoId}`}
-        className={` relative flex min-[100px] max-h-[96%] w-full overflow-hidden rounded-md xs:rounded-none sm:max-h-[90%] md:max-h-[240px] ${
+        className={` min-[100px] relative flex max-h-[96%] w-full overflow-hidden rounded-2xl sm:max-h-[90%] md:max-h-[240px] ${
           isSearchMode && "rounded-lg"
         } `}
       >
@@ -78,44 +78,48 @@ const VideoCard = ({ item }) => {
         </span>
       </Link>
       {/* content start */}
-      <div className="px-3 py-2">
-        <div className={`${styles.centerX} gap-2`}>
+      <div className=" py-2">
+        <div className={`${styles.centerX}  gap-2`}>
           {!isSearchMode && <Img />}
-          <Link to={`/watch/${videoId}`}>
-            <h3
-              title={title}
-              className="md:text-md text-xs text-slate-800 sm:text-sm"
+          <div className="">
+            <Link to={`/watch/${videoId}`}>
+              <h3
+                title={title}
+                className="md:text-md text-xs text-slate-800 sm:text-sm"
+              >
+                {" "}
+                {title}
+              </h3>
+            </Link>
+            <div
+              className={`mt-1 flex flex-wrap gap-1  text-xs text-slate-600 sm:text-sm  ${
+                isSearchMode
+                  ? "md:flex-col-reverse"
+                  : "items-center gap-2 md:flex-col md:items-start"
+              }`}
             >
-              {" "}
-              {title}
-            </h3>
-          </Link>
+              {/* channelimage */}
+
+              <ChannelImg searchmode={isSearchMode} />
+              <div className={` flex items-center  text-[10px] md:text-sm`}>
+                <span className=" flex items-center gap-1 ">
+                  <span title={viewCount}> {formatNumber(+viewCount)}</span>{" "}
+                  views
+                </span>
+                {!isLive && publishedTimeText && (
+                  <>
+                    <BsDot />
+                    <span title={publishDate}> {publishedTimeText} </span>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="flex flex-col text-[15px] text-slate-700">
           {/* todo reverse when searchmode */}
-          <div
-            className={`mt-2 flex flex-wrap gap-2  text-xs text-slate-600 sm:text-sm  ${
-              isSearchMode
-                ? "md:flex-col-reverse"
-                : "items-center gap-2 md:flex-col md:items-start"
-            }`}
-          >
-            {/* channelimage */}
 
-            <ChannelImg searchmode={isSearchMode} />
-            <div className={` flex items-center  text-[10px] md:text-sm`}>
-              <span className=" flex items-center gap-2 ">
-                <span title={viewCount}> {formatNumber(+viewCount)}</span> views
-              </span>
-              {!isLive && publishedTimeText && (
-                <>
-                  <BsDot />
-                  <span title={publishDate}> {publishedTimeText} </span>
-                </>
-              )}
-            </div>
-          </div>
           {isSearchMode && description && (
             <p
               title="from description"

@@ -14,7 +14,7 @@ const Videos = ({ medias }) => {
       ${
         isSearchMode
           ? "grid-cols-1 xl:mx-auto "
-          : " xs:grid-cols-[repeat(auto-fit,minmax(240px,1fr))] "
+          : " xs:grid-cols-[repeat(auto-fit,minmax(312px,1fr))] "
       }
         `}
     >
