@@ -1,14 +1,21 @@
 import { BsDot } from "react-icons/bs";
 import { formatNumber } from "../../utils/youtube";
 import styles from "../../style";
+import { Link } from "react-router-dom";
 
-const ChannelVideoCard = ({ item, channelTitle }) => {
-  const { lengthText, publishedTimeText, isLive, title, viewCount } = item;
+const ChannelVideoCard = ({ item, extra, channelTitle, direction }) => {
+  console.log(item);
+  // if (!item.title) return;
+  const { lengthText, publishedTimeText, videoId, isLive, title, viewCount } =
+    item;
   return (
-    <div className="grid h-full min-h-[100px] grid-cols-[45%,55%] gap-1  overflow-hidden rounded-md xs:grid-cols-1 xs:rounded-xl xs:shadow-md">
+    <Link
+      to={`/watch/${videoId}`}
+      className={`grid h-full min-h-[100px] ${direction} gap-1  overflow-hidden rounded-md `}
+    >
       <div className="relative overflow-hidden">
         <img
-          className="w-full rounded-md xs:rounded-none "
+          className="w-full rounded-lg  "
           src={
             item?.thumbnail[3]?.url ||
             item?.thumbnail[2]?.url ||
@@ -17,15 +24,19 @@ const ChannelVideoCard = ({ item, channelTitle }) => {
           }
           alt="video poster image"
         />
-        <span className="absolute bottom-1 right-1 rounded-md bg-black p-1 text-xs  text-slate-300 ">
-          {" "}
-          {lengthText}{" "}
-        </span>
+        {lengthText && (
+          <span className="absolute bottom-1 right-1 rounded-md bg-black p-1 text-xs  text-slate-300 ">
+            {" "}
+            {lengthText}{" "}
+          </span>
+        )}
       </div>
       <div className="p-2 pb-4">
         <h3 title={title} className="text-sm text-slate-700">
           {" "}
-          {title.split(" ", 5).join(" ") + "..."}{" "}
+          {!title
+            ? " This video isn't publicly available "
+            : title?.split(" ", 5).join(" ") + "..."}
         </h3>
         {channelTitle && (
           <span className="text-slate-500"> {channelTitle} </span>
@@ -42,8 +53,15 @@ const ChannelVideoCard = ({ item, channelTitle }) => {
             )}
           </p>
         )}
+        {extra?.description && (
+          <p title="form description" className="mt-2 text-xs  text-slate-700">
+            {" "}
+            {extra.description.split(" ", 10).join(" ").slice(0, 60) +
+              "..."}{" "}
+          </p>
+        )}
       </div>
-    </div>
+    </Link>
   );
 };
 

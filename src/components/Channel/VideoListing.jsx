@@ -34,7 +34,7 @@ const VideoListing = ({ data }) => {
         <Slider styling="py-2">
           {data.data.map((el) => (
             <Slide key={crypto.randomUUID()} styling="xs:p-1 xs:mx-0 mx-1">
-              <ChannelVideoCard item={el} />
+              <ChannelVideoCard  item={el} />
             </Slide>
           ))}
         </Slider>
@@ -49,7 +49,7 @@ const VideoListing = ({ data }) => {
           <div ref={parent} className="grid">
             {data.data.map((el) => (
               <div key={crypto.randomUUID()} className="overflow-hidden pt-3">
-                <ChannelVideoCard key={crypto.randomUUID()} item={el} />
+                <ChannelVideoCard direction="grid-cols-2" key={crypto.randomUUID()} item={el} />
               </div>
             ))}
           </div>
