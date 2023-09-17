@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useStore } from "../../Context/Context";
 
 const ChannelCard = ({ item }) => {
-  const { isSearchMode } = useStore();
   if (!item) return;
   const {
     subscriberCount,

@@ -130,7 +130,7 @@ const ChannelDetails = () => {
             {tabs.map(
               (el) =>
                 PossibleTabs.includes(el) && (
-                  <Slide responsive="">
+                  <Slide key={crypto.randomUUID()} responsive="">
                     <div className="px-1">
                       <Button key={el} el={el} />
                     </div>

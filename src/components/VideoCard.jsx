@@ -60,8 +60,8 @@ const VideoCard = ({ item }) => {
       {/* image */}
       <Link
         to={`/watch/${videoId}`}
-        className={`relative  flex min-h-[200px]
-        overflow-hidden max-h-[250px] rounded-lg xs:min-h-[120px]    md:rounded-2xl `}
+        className={`relative  flex min-h-[150px]
+        overflow-hidden max-h-[220px] rounded-lg xs:min-h-[120px]    md:rounded-2xl `}
       >
         <img src={url2 || url1} alt={title} />
         <span className="absolute bottom-1 right-1 rounded-md bg-black object-contain px-2 py-1 text-xs text-white ">

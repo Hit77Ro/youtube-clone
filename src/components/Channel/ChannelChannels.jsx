@@ -4,6 +4,7 @@ import Loader from "../../utils/Loader";
 import useChannelFetcher from "../../utils/useChannelFetcher";
 import { ImWondering } from "react-icons/im";
 import { useState } from "react";
+import EmptyMessage from "../EmptyMessage";
 
 const ChannelChannels = () => {
   const { data, id } = useChannelFetcher("channels");
@@ -63,14 +64,7 @@ const ChannelChannels = () => {
   return (
     <>
       {data.data.length <= 0 ? (
-        <h1 className={`flex-1 flex-col gap-5 ${styles.flexCenter} `}>
-          {" "}
-          <span>{data.msg}</span>{" "}
-          <span className="text-[40px] text-red-300">
-            {" "}
-            <ImWondering />{" "}
-          </span>
-        </h1>
+        <EmptyMessage message={data.msg} />
       ) : (
         <div>
           <select
@@ -80,7 +74,11 @@ const ChannelChannels = () => {
           >
             <option value="all">All Channels</option>
             {channels.map((el) => (
-              <option className="capitalize" value={el.title}>
+              <option
+                key={crypto.randomUUID()}
+                className="capitalize"
+                value={el.title}
+              >
                 {" "}
                 {el.title}{" "}
               </option>
@@ -92,9 +90,9 @@ const ChannelChannels = () => {
               : channels.filter((el) => el.title === filterdChannel)
             ).map((el) =>
               el.type === "channel_listing" ? (
-                <ChannelListing data={el} />
+                <ChannelListing data={el} key={crypto.randomUUID()} />
               ) : (
-                <ChannelCard el={el} />
+                <ChannelCard el={el} key={crypto.randomUUID()} />
               ),
             )}
           </div>

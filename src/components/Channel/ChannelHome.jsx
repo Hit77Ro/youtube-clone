@@ -24,9 +24,9 @@ const ChannelHome = ({}) => {
       {obj.data.map(
         (el) =>
           el.type === "player" ? (
-            <Player item={el} />
+            <Player item={el} key={crypto.randomUUID()} />
           ) : el.type === "video_listing" ? (
-            <VideoListing data={el} />
+            <VideoListing data={el} key={crypto.randomUUID()} />
           ) : null, // You can add another null here for clarity
       )}
     </div>
