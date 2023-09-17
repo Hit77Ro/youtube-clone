@@ -53,13 +53,13 @@ const VideoCard = ({ item, isSearchMode }) => {
   return (
     <div
       className={`gap-2     
-      ${isSearchMode && "grid xs:grid-cols-2"}`}
+      ${isSearchMode && " gap-5 xs:flex"}`}
     >
       {/* image */}
       <Link
         to={`/watch/${videoId}`}
-        className={`relative  flex max-h-[200px]  max-w-[400px]
-       overflow-hidden rounded-lg md:rounded-2xl `}
+        className={`relative  flex max-h-[200px] w-full  overflow-hidden
+       rounded-lg xs:max-w-[200px] md:max-w-[300px] md:rounded-2xl `}
       >
         <img src={url2 || url1} alt={title} />
         <span className="absolute bottom-1 right-1 rounded-md bg-black object-contain px-2 py-1 text-xs text-white ">
@@ -68,7 +68,7 @@ const VideoCard = ({ item, isSearchMode }) => {
         </span>
       </Link>
       {/* content start */}
-      <div className="py-2">
+      <div className=" flex-1 py-2">
         <div className={`${styles.centerX}  gap-2`}>
           {!isSearchMode && <Img />}
           <div className="">
