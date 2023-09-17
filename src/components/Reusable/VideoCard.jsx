@@ -58,7 +58,7 @@ const VideoCard = ({ item, isSearchMode }) => {
       {/* image */}
       <Link
         to={`/watch/${videoId}`}
-        className={`relative  flex max-h-[210px] min-h-[150px] max-w-[400px]
+        className={`relative  flex max-h-[200px]  max-w-[400px]
        overflow-hidden rounded-lg md:rounded-2xl `}
       >
         <img src={url2 || url1} alt={title} />
