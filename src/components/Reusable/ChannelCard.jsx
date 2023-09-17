@@ -16,9 +16,7 @@ const ChannelCard = ({ item }) => {
       to={`/channel/${channelId}`}
       className={`flex  gap-5    py-4 transition-all  `}
     >
-      <div
-        className={`flex-1 xs:max-w-[200px] md:max-w-[300px] ${styles.flexCenter}`}
-      >
+      <div className={` basis-[30%] xs:basis-2/4  sm:max-w-[300px] ${styles.flexCenter}`}>
         <img
           src={"https:" + url2 || url1}
           className=" max-h-[80px] max-w-[80px]  rounded-full  sm:max-h-[120px] sm:max-w-[120px]"
