@@ -1,6 +1,6 @@
 export { default as ChannelHome } from "./ChannelHome";
-export { default as ChannelCard } from "./ChannelCard";
-export { default as ChannelDetails } from "./ChannelDetails";
+export { default as ChannelCard } from "../Reusable/ChannelCard";
+export { default as ChannelDetails } from "../pages/ChannelDetails";
 export { default as ChannelVideos } from "./ChannelVideos";
 export { default as ChannelShorts } from "./ChannelShorts";
 export { default as ChannelPlaylists } from "./ChannelPlaylists";

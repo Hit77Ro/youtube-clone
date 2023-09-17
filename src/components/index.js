@@ -1,13 +1,13 @@
 export { default as Navbar } from "./Navbar";
 export { default as Sidebar } from "./Sidebar";
-export { default as VideoCard } from "./VideoCard";
-export { default as VideosPlaylist } from "./VideosPlaylist";
-export { default as Videos } from "./Videos";
-export { default as SearchDetails } from "./SearchDetails";
-export { default as SearchSuggestions } from "./SearchSuggestions";
-export { default as Home } from "./Home";
-export { default as VideoDetails } from "./VideoDetails";
-export { default as Logo } from "./Logo";
-export { default as Explore } from "./Explore";
+export { default as VideoCard } from "./Reusable/VideoCard";
+export { default as VideosPlaylist } from "./Video/VideosPlaylist";
+export { default as Videos } from "./Video/Videos";
+export { default as SearchDetails } from "./pages/SearchDetails";
+export { default as SearchSuggestions } from "./Search/SearchSuggestions";
+export { default as Home } from "./pages/Home";
+export { default as VideoDetails } from "./Video/VideoDetails";
+export { default as Logo } from "./Reusable/Logo";
+export { default as Explore } from "./pages/Explore";
 
-export { default as ChannelDetails } from "./Channel/ChannelDetails";
+export { default as ChannelDetails } from "./pages/ChannelDetails";

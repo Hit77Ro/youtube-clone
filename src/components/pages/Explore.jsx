@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { FetchApi } from "../utils/api";
-import Videos from "./Videos";
-import { useStore } from "../Context/Context";
-import styles from "../style";
+import { FetchApi } from "../../utils/api";
+import { useStore } from "../../Context/Context";
+import styles from "../../style";
+import Videos from "../Video/Videos";
 const Explore = () => {
   const { category } = useParams();
   const { ToggleSearchMode, dispatch } = useStore();

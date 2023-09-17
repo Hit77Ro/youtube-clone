@@ -1,7 +1,7 @@
-import Videos from "./Videos";
-import { useStore } from "../Context/Context";
+import Videos from "../Video/Videos";
+import { useStore } from "../../Context/Context";
 import { useEffect } from "react";
-import styles from "../style";
+import styles from "../../style";
 const Home = () => {
   const { medias, ToggleSearchMode, dispatch } = useStore();
   useEffect(() => {

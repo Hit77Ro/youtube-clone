@@ -1,8 +1,8 @@
 // context.jsx
 import { createContext, useContext, useReducer } from "react";
 
-import reducer from "../components/Reducer";
-import { Actions } from "../components/Reducer";
+import reducer from "./Reducer";
+import { Actions } from "./Reducer";
 export const StoreProvider = createContext();
 export const useStore = () => useContext(StoreProvider);
 

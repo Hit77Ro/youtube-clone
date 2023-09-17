@@ -1,7 +1,6 @@
 import { BsCheckCircleFill, BsDot } from "react-icons/bs";
 import styles from "../../style";
 import { Link } from "react-router-dom";
-import { useStore } from "../../Context/Context";
 
 const ChannelCard = ({ item }) => {
   if (!item) return;

@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import styles from "../../style";
 import Loader from "../../utils/Loader";
 import useChannelFetcher from "../../utils/useChannelFetcher";
-import { ImWondering } from "react-icons/im";
 import { useState } from "react";
-import EmptyMessage from "../EmptyMessage";
+import EmptyMessage from "../Reusable/EmptyMessage";
+
 
 const ChannelChannels = () => {
   const { data, id } = useChannelFetcher("channels");

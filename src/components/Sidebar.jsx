@@ -2,11 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { useStore } from "../Context/Context";
 import styles from "../style";
 import { categories } from "../utils/constants";
-import Logo from "./Logo";
+import Logo from "./Reusable/Logo";
 import { FetchApi } from "../utils/api";
 import { useNavigate } from "react-router-dom";
 import useClickOutside from "../utils/useClickOutside";
-import useFunctions from "../utils/useFunctions";
 
 const Sidebar = () => {
   const [category, setCategory] = useState("home");

@@ -1,9 +1,8 @@
 import { BsArrowLeft, BsSearch, BsX, BsYoutube } from "react-icons/bs";
-import Logo from "./Logo";
+import Logo from "./Reusable/Logo";
 import styles from "../style";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useStore } from "../Context/Context";
 
 const Navbar = () => {
   const navigate = useNavigate();

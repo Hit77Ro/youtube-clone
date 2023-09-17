@@ -1,8 +1,10 @@
-import { useStore } from "../Context/Context";
+
+
+import { useStore } from "../../Context/Context";
+import Loader from "../../utils/Loader";
+import { ChannelCard, ShortsListing } from "../Channel";
+import VideoCard from "../Reusable/VideoCard";
 import VideosPlaylist from "./VideosPlaylist";
-import VideoCard from "./VideoCard";
-import Loader from "../utils/Loader";
-import { ChannelCard, ShortsListing } from "./Channel";
 
 const Videos = ({ medias }) => {
   const { isSearchMode } = useStore();

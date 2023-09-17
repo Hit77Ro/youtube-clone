@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { formatNumber } from "../utils/youtube";
+import { formatNumber } from "../../utils/youtube";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { BsDot } from "react-icons/bs";
-import { useStore } from "../Context/Context";
-import styles from "../style";
+import { useStore } from "../../Context/Context";
+import styles from "../../style";
 
 const VideoCard = ({ item }) => {
   const { isSearchMode } = useStore();

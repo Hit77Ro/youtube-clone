@@ -1,7 +1,7 @@
 import { BsYoutube } from "react-icons/bs";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
-import { useStore } from "../Context/Context";
+import { useStore } from "../../Context/Context";
 const Logo = ({ barRef }) => {
   const { dispatch, isSidebarOpen, ToggleSidebar } = useStore();
   const handleClick = () => {

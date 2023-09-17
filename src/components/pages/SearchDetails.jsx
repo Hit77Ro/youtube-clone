@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
-import Videos from "./Videos";
+import Videos from "../Video/Videos";
 import { useEffect, useState } from "react";
-import { FetchApi } from "../utils/api";
-import { useStore } from "../Context/Context";
-import styles from "../style";
+import { FetchApi } from "../../utils/api";
+import { useStore } from "../../Context/Context";
+import styles from "../../style";
 
 const SearchDetails = () => {
   const [medias, setMedias] = useState([]);

@@ -1,6 +1,6 @@
 import Loader from "../../utils/Loader";
 import useChannelFetcher from "../../utils/useChannelFetcher";
-import EmptyMessage from "../EmptyMessage";
+import EmptyMessage from "../Reusable/EmptyMessage";
 
 const ChannelCommnunity = () => {
   const { data: obj } = useChannelFetcher("community");
