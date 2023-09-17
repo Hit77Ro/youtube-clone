@@ -53,7 +53,7 @@ const VideoCard = ({ item, isSearchMode }) => {
   return (
     <div
       className={`gap-2     
-      ${isSearchMode && "grid grid-cols-2"}`}
+      ${isSearchMode && "grid xs:grid-cols-2"}`}
     >
       {/* image */}
       <Link
