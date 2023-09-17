@@ -58,9 +58,9 @@ const VideoCard = ({ item, isSearchMode }) => {
       {/* image */}
       <Link
         to={`/watch/${videoId}`}
-        className={`relative shrink-0 flex max-h-[200px] min-h-[100px] overflow-hidden
+        className={`relative flex max-h-[200px] min-h-[100px] shrink-0 overflow-hidden
        rounded-lg   md:rounded-2xl ${
-         isSearchMode && "sm:max-w-[300px] w-[50%]"
+         isSearchMode && "w-[50%] sm:max-w-[300px]"
        } `}
       >
         <img src={url2 || url1} alt={title} />
@@ -77,14 +77,14 @@ const VideoCard = ({ item, isSearchMode }) => {
             <Link to={`/watch/${videoId}`}>
               <h3
                 title={title}
-                className="md:text-md text-xs text-slate-800 sm:text-sm"
+                className="lg:text-md text-xs text-slate-800 md:text-sm"
               >
                 {" "}
-                {title.split(" ", 15).join(" ")}
+                {!isSearchMode ? title.split(" ", 10).join(" ") : title}
               </h3>
             </Link>
             <div
-              className={`mt-1 flex flex-wrap gap-1  text-xs text-slate-600 sm:text-sm  ${
+              className={`mt-1 flex flex-wrap gap-1  text-xs text-slate-600 md:text-sm  ${
                 isSearchMode
                   ? "md:flex-col-reverse"
                   : "items-center gap-2 md:flex-col md:items-start"

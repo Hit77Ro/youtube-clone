@@ -10,7 +10,7 @@ const Videos = ({ medias, isSearchMode }) => {
       className={`grid  gap-3 ${
         isSearchMode
           ? "grid-cols-1"
-          : `grid-cols-[repeat(auto-fit,minmax(220px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] `
+          : `grid-cols-[repeat(auto-fit,minmax(260px,1fr))] `
       }`}
     >
       {isSearchMode
