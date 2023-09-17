@@ -58,8 +58,10 @@ const VideoCard = ({ item, isSearchMode }) => {
       {/* image */}
       <Link
         to={`/watch/${videoId}`}
-        className={`relative  flex max-h-[200px] w-full  overflow-hidden
-       rounded-lg xs:max-w-[200px] md:max-w-[300px] md:rounded-2xl `}
+        className={`relative shrink-0 flex max-h-[200px] min-h-[100px] overflow-hidden
+       rounded-lg   md:rounded-2xl ${
+         isSearchMode && "sm:max-w-[300px] w-[50%]"
+       } `}
       >
         <img src={url2 || url1} alt={title} />
         <span className="absolute bottom-1 right-1 rounded-md bg-black object-contain px-2 py-1 text-xs text-white ">
@@ -78,7 +80,7 @@ const VideoCard = ({ item, isSearchMode }) => {
                 className="md:text-md text-xs text-slate-800 sm:text-sm"
               >
                 {" "}
-                {title}
+                {title.split(" ", 15).join(" ")}
               </h3>
             </Link>
             <div
