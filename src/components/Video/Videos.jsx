@@ -1,13 +1,9 @@
-
-
-import { useStore } from "../../Context/Context";
 import Loader from "../../utils/Loader";
 import { ChannelCard, ShortsListing } from "../Channel";
 import VideoCard from "../Reusable/VideoCard";
 import VideosPlaylist from "./VideosPlaylist";
 
-const Videos = ({ medias }) => {
-  const { isSearchMode } = useStore();
+const Videos = ({ medias, isSearchMode }) => {
   if (medias.length <= 0) return <Loader />;
   return (
     <div
@@ -20,7 +16,11 @@ const Videos = ({ medias }) => {
       {isSearchMode
         ? medias.map((item, idx) =>
             item.videoId ? (
-              <VideoCard key={idx + crypto.randomUUID()} item={item} />
+              <VideoCard
+                isSearchMode={isSearchMode}
+                key={idx + crypto.randomUUID()}
+                item={item}
+              />
             ) : item.type === "channel" ? (
               <ChannelCard key={idx + crypto.randomUUID()} item={item} />
             ) : item.type === "video_listing" ? (

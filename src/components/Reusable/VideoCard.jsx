@@ -2,11 +2,9 @@ import { Link } from "react-router-dom";
 import { formatNumber } from "../../utils/youtube";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { BsDot } from "react-icons/bs";
-import { useStore } from "../../Context/Context";
 import styles from "../../style";
 
-const VideoCard = ({ item }) => {
-  const { isSearchMode } = useStore();
+const VideoCard = ({ item, isSearchMode }) => {
   if (!item || !item.channelThumbnail) {
     return "";
   }
@@ -24,14 +22,14 @@ const VideoCard = ({ item }) => {
     isLive,
     thumbnail: [{ url: url1 }, { url: url2 } = false],
   } = item;
-  const ChannelImg = ({ searchmode }) => {
+  const ChannelImg = () => {
     return (
       <Link
         to={`/channel/${channelId}`}
         className=" flex items-center gap-1 text-[11px] leading-6 sm:text-sm"
       >
         {" "}
-        {searchmode && (
+        {isSearchMode && (
           <span className=" block h-[30px] w-[30px] shrink-0 overflow-hidden  rounded-full">
             <img src={url} alt="channelAvatar" />
             <img src={url || "https://placehold.co/400"} alt="channelAvatar" />
@@ -60,8 +58,8 @@ const VideoCard = ({ item }) => {
       {/* image */}
       <Link
         to={`/watch/${videoId}`}
-        className={`relative  flex min-h-[150px]
-        overflow-hidden max-h-[220px] rounded-lg xs:min-h-[120px]    md:rounded-2xl `}
+        className={`relative flex max-h-[200px] min-h-[150px]
+        max-w-[400px] overflow-hidden rounded-lg md:rounded-2xl `}
       >
         <img src={url2 || url1} alt={title} />
         <span className="absolute bottom-1 right-1 rounded-md bg-black object-contain px-2 py-1 text-xs text-white ">
@@ -70,7 +68,7 @@ const VideoCard = ({ item }) => {
         </span>
       </Link>
       {/* content start */}
-      <div className="py-2">
+      <div className="shrink-0 py-2">
         <div className={`${styles.centerX}  gap-2`}>
           {!isSearchMode && <Img />}
           <div className="">
@@ -92,7 +90,7 @@ const VideoCard = ({ item }) => {
             >
               {/* channelimage */}
 
-              <ChannelImg searchmode={isSearchMode} />
+              <ChannelImg />
               <div className={` flex items-center  text-[10px] md:text-sm`}>
                 <span className=" flex items-center gap-1 ">
                   <span title={viewCount}> {formatNumber(+viewCount)}</span>{" "}
