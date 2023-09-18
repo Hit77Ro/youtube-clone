@@ -25,7 +25,7 @@ const App = () => {
   return (
     <Router>
       <div
-        className={` pt-[70px]  transition-[0.5s] ${
+        className={`  pt-[70px]  transition-[0.5s] ${
           isSidebarOpen ? "lg:ml-[240px]" : ""
         } 
           ${isSearchMode ? "md:container" : ""} 
@@ -34,6 +34,8 @@ const App = () => {
         <div
           className={`lg:hidden  ${isSidebarOpen ? "overlay active" : ""}`}
         />
+        <div className="max-w-[1600px] mx-auto">
+
         <Navbar />
         <Sidebar />
         <Routes>
@@ -52,6 +54,7 @@ const App = () => {
             <Route path="community" element={<ChannelCommunity />} />
           </Route>
         </Routes>
+        </div>
       </div>
     </Router>
   );

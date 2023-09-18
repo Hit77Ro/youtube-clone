@@ -4,31 +4,31 @@ import ChannelVideoCard from "../Channel/ChannelVideoCard";
 import { BiMessageAltDetail } from "react-icons/bi";
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 const PostVideo = ({ item }) => {
-  const {
-    type,
-    postId,
-    authorText,
-    attachment: {
-      videoId,
-      title,
-      channelTitle,
-      lengthText,
-      publishedTimeText: videoPublishTimeText,
-      description,
-      thumbnail: [{ url: vurl1 }, { url: vurl2 } = false],
-      viewCount,
-    },
-    authorChannelId,
-    authorThumbnail: [{ url: url1 }, { url: url2 }, { url: url3 }],
-    contentText,
-    publishedTimeText,
-    publishDate,
-    publishedAt,
-    voteCountText,
-    voteStatus,
-    replyCount,
-  } = item;
-  console.log(voteCountText);
+  // const {
+  //   type,
+  //   postId,
+  //   authorText,
+  //   attachment: {
+  //     videoId,
+  //     title,
+  //     channelTitle,
+  //     lengthText,
+  //     publishedTimeText: videoPublishTimeText,
+  //     description,
+  //     thumbnail: [{ url: vurl1 }, { url: vurl2 } = false],
+  //     viewCount,
+  //   },
+  //   authorChannelId,
+  //   authorThumbnail: [{ url: url1 }, { url: url2 }, { url: url3 }],
+  //   contentText,
+  //   publishedTimeText,
+  //   publishDate,
+  //   publishedAt,
+  //   voteCountText,
+  //   voteStatus,
+  //   replyCount,
+  // } = item;
+  console.log(item);
   return (
     <div className="grid grid-cols-[auto,1fr] items-start gap-2 rounded-2xl border border-slate-300  p-3 sm:p-5">
       <Link to={`/channel/${authorChannelId}`}>

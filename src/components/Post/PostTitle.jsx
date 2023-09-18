@@ -23,6 +23,7 @@ const PostTitle = ({ title }) => {
           className={`overflow-hidden text-ellipsis text-justify text-sm text-slate-900 transition-all ${
             isOpen ? "max-h-auto" : "max-h-[80px]"
           } `}
+        
         >
           {title.split(".").join(".\n")}
         </h3>

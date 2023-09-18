@@ -93,7 +93,7 @@ const ChannelDetails = () => {
           />
         </div>
       )}
-      <div className={`${styles.paddingX}  mx-auto max-w-[1200px]`}>
+      <div className={`${styles.paddingX}`}>
         <div className={`mt-5  flex  flex-col items-center sm:flex-row`}>
           <div
             className={` max-w-[80px] overflow-hidden rounded-full md:max-w-[100px]  ${styles.flexCenter}`}

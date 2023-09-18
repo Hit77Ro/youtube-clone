@@ -73,7 +73,7 @@ const Slider = ({
 export const Slide = ({
   children,
   styling = "",
-  responsive = " basis-full xs:basis-2/4 sm:basis-2/6  lg:basis-3/12 xl:basis-3/12",
+  responsive = " basis-full xs:basis-2/4 sm:basis-2/6  lg:basis-3/12 xl:basis-2/12",
 }) => {
   return (
     <div

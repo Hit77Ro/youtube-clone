@@ -1,6 +1,6 @@
 import Loader from "../../utils/Loader";
 import useChannelFetcher from "../../utils/useChannelFetcher";
-import { PostImg, PostVideo } from "../Post";
+import { PostImg, PostMultiImg, PostText, PostVideo } from "../Post";
 import EmptyMessage from "../Reusable/EmptyMessage";
 
 const ChannelCommnunity = () => {
@@ -8,6 +8,7 @@ const ChannelCommnunity = () => {
   if (!obj) return <Loader />;
 
   const { data } = obj;
+  console.log(data);
   return (
     <>
       {!obj.data.length ? (
@@ -15,10 +16,14 @@ const ChannelCommnunity = () => {
       ) : (
         <div className="flex flex-col gap-5">
           {data.map((post) =>
-            post.attachment.type === "image" ? (
+            post?.attachment?.type === "image" ? (
               <PostImg key={crypto.randomUUID()} item={post} />
-            ) : post.attachment.type === "video" ? (
+            ) : post?.attachment?.type === "video" ? (
               <PostVideo key={crypto.randomUUID()} item={post} />
+            ) : !post?.attachment ? (
+              <PostText item={post} key={crypto.randomUUID()} />
+            ) : post?.attachment?.type === "multi_image" ? (
+              <PostMultiImg item={post} key={crypto.randomUUID()} />
             ) : (
               ""
             ),
