@@ -1,4 +1,5 @@
 import Slider, { Slide } from "../../utils/Slider";
+import getImg from "../../utils/getImg";
 
 const PostMultiImg = ({ item }) => {
   console.log(item);
@@ -15,13 +16,7 @@ const PostMultiImg = ({ item }) => {
             <img
               className="object-contain"
               src={
-                el[7]?.url ||
-                el[6]?.url ||
-                el[5]?.url ||
-                el[4]?.url ||
-                el[3]?.url ||
-                el[2]?.url ||
-                el[1]?.url
+                getImg(el,7)
               }
               alt=""
             />

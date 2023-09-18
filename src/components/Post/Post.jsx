@@ -3,6 +3,7 @@ import { PostImg, PostMultiImg, PostText, PostVideo } from "./";
 import PostTitle from "./PostTitle";
 import { BiMessageAltDetail } from "react-icons/bi";
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
+import getImg from "../../utils/getImg";
 const Post = ({ item }) => {
   const {
     authorText,
@@ -18,7 +19,7 @@ const Post = ({ item }) => {
       <Link to={`/channel/${authorChannelId}`}>
         <img
           className="max-w-[30px] rounded-full md:max-w-[50px]"
-          src={url3 || url2 || url1}
+          src={getImg(item?.authorThumbnail, 2)}
           alt="author avatar"
         />{" "}
       </Link>
@@ -47,7 +48,7 @@ const Post = ({ item }) => {
             <AiOutlineDislike />
           </span>
           <span title="" className="flex  items-center gap-1">
-            <BiMessageAltDetail /> {replyCount}{" "}
+            <BiMessageAltDetail /> {replyCount || 0}{" "}
           </span>
         </div>
       </div>

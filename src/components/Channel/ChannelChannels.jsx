@@ -4,7 +4,7 @@ import Loader from "../../utils/Loader";
 import useChannelFetcher from "../../utils/useChannelFetcher";
 import { useState } from "react";
 import EmptyMessage from "../Reusable/EmptyMessage";
-
+import getImg from "../../utils/getImg";
 
 const ChannelChannels = () => {
   const { data, id } = useChannelFetcher("channels");
@@ -21,10 +21,7 @@ const ChannelChannels = () => {
       <div className="h-[80px] w-[80px]  overflow-hidden rounded-full">
         <img
           src={
-            "https:" + el?.thumbnail[2]?.url ||
-            el?.thumbnail[1]?.url ||
-            el?.thumbnail[0]?.url ||
-            "https://placehold.co/400"
+            "https:" + getImg(el?.thumbnail,4)
           }
           alt="channel avatar"
           className="h-full w-full object-contain"

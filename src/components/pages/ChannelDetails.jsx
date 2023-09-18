@@ -15,6 +15,7 @@ const PossibleTabs = [
 ];
 
 import Slider, { Slide } from "../../utils/Slider";
+import getImg from "../../utils/getImg";
 const ChannelDetails = () => {
   const aboutButton = useRef();
   const [Tab, setTab] = useState("Home");
@@ -83,22 +84,18 @@ const ChannelDetails = () => {
           <img
             className="h-full  flex-1 "
             src={
-              meta?.banner[5]?.url ||
-              meta?.banner[4]?.url ||
-              meta?.banner[2]?.url ||
-              meta?.banner[1]?.url ||
-              meta?.banner[0]?.url
+              getImg(meta?.banner,5)
             }
             alt="channel banner"
           />
         </div>
       )}
-      <div className={` max-w-[1200px] mx-auto ${styles.paddingX}`}>
+      <div className={` max-w-[1284px] mx-auto ${styles.paddingX}`}>
         <div className={`mt-5  flex  flex-col items-center sm:flex-row`}>
           <div
             className={` max-w-[80px] overflow-hidden rounded-full md:max-w-[100px]  ${styles.flexCenter}`}
           >
-            <img src={url3 || url2 || url1} alt="" className="object-contain" />
+            <img src={getImg(meta?.avatar,2)} alt="" className="object-contain" />
           </div>
           <div
             className={` flex flex-col items-center gap-[6px] p-4 text-slate-600 md:max-w-[800px] md:items-start ${styles.paddingX}`}

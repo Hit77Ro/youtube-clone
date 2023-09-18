@@ -2,9 +2,9 @@ import { BsDot } from "react-icons/bs";
 import { formatNumber } from "../../utils/youtube";
 import styles from "../../style";
 import { Link } from "react-router-dom";
+import getImg from "../../utils/getImg";
 
 const ChannelVideoCard = ({ item, extra, channelTitle, direction }) => {
-  console.log(item);
   // if (!item.title) return;
   const { lengthText, publishedTimeText, videoId, isLive, title, viewCount } =
     item;
@@ -16,12 +16,7 @@ const ChannelVideoCard = ({ item, extra, channelTitle, direction }) => {
       <div className="relative overflow-hidden">
         <img
           className="w-full rounded-lg  "
-          src={
-            item?.thumbnail[3]?.url ||
-            item?.thumbnail[2]?.url ||
-            item?.thumbnail[1]?.url ||
-            item?.thumbnail[0]?.url
-          }
+          src={getImg(item?.thumbnail, 5)}
           alt="video poster image"
         />
         {lengthText && (
@@ -43,7 +38,9 @@ const ChannelVideoCard = ({ item, extra, channelTitle, direction }) => {
         )}
 
         {viewCount && (
-          <p className={` flex flex-wrap gap-1 mt-2 text-[11px]  sm:text-xs  text-slate-600 ${styles.centerX}`}>
+          <p
+            className={` mt-2 flex flex-wrap gap-1 text-[11px]  text-slate-600  sm:text-xs ${styles.centerX}`}
+          >
             <span> {formatNumber(viewCount)} views </span>
             {!isLive && publishedTimeText && (
               <>
@@ -56,8 +53,7 @@ const ChannelVideoCard = ({ item, extra, channelTitle, direction }) => {
         {extra?.description && (
           <p title="form description" className="mt-2 text-xs  text-slate-700">
             {" "}
-            {extra.description.split(" ", 10).join(" ").slice(0, 60) +
-              "..."}{" "}
+            {extra?.description}{" "}
           </p>
         )}
       </div>

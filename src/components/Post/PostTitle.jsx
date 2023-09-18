@@ -17,13 +17,12 @@ const PostTitle = ({ title }) => {
   }, []);
   return (
     <div className="p-1">
-      <div className={`my-1 grid  transition-all `}>
-        <h3
-          ref={collapse}
-          className={`overflow-hidden text-ellipsis text-justify text-sm text-slate-900 transition-all ${
-            isOpen ? "max-h-auto" : "max-h-[80px]"
-          } `}
-        >
+      <div
+        ref={collapse}
+        className={`my-1 overflow-hidden   text-ellipsis  transition-all `}
+        style={{ maxHeight: isOpen ? scrollHeight : 50 }}
+      >
+        <h3 className={` text-justify text-sm text-slate-900 transition-all  `}>
           {title.split(".").join(".\n")}
         </h3>
       </div>
