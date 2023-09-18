@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Slider, { Slide } from "../../utils/Slider";
-import ChannelVideoCard from "./ChannelVideoCard";
+import ChannelVideoCard from "../Reusable/ChannelVideoCard";
 import { HiChevronDown } from "react-icons/hi2";
 
 const VideoListing = ({ data }) => {

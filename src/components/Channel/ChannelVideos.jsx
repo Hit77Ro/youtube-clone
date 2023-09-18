@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Loader from "../../utils/Loader";
 import useChannelFetcher from "../../utils/useChannelFetcher";
-import ChannelVideoCard from "./ChannelVideoCard";
+import ChannelVideoCard from "../Reusable/ChannelVideoCard";
 import styles from "../../style";
 
 const ChannelVideos = () => {

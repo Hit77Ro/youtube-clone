@@ -9,4 +9,3 @@ export { default as ChannelAbout } from "./ChannelAbout";
 export { default as ChannelChannels } from "./ChannelChannels";
 export { default as ChannelLive } from "./ChannelLive";
 export { default as ShortsListing } from "./ShortsListing";
-export { default as ChannelVideoCard } from "./ChannelVideoCard";

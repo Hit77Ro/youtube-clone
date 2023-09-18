@@ -1,4 +1,4 @@
-import ChannelVideoCard from "../Channel/ChannelVideoCard";
+import ChannelVideoCard from "../Reusable/ChannelVideoCard";
 
 const PostVideo = ({ item }) => {
   return (

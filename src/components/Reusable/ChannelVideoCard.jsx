@@ -43,7 +43,7 @@ const ChannelVideoCard = ({ item, extra, channelTitle, direction }) => {
         )}
 
         {viewCount && (
-          <p className={` mt-2 text-xs  text-slate-600 ${styles.centerX}`}>
+          <p className={` flex flex-wrap gap-1 mt-2 text-[11px]  sm:text-xs  text-slate-600 ${styles.centerX}`}>
             <span> {formatNumber(viewCount)} views </span>
             {!isLive && publishedTimeText && (
               <>
