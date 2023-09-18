@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
-const buttonStyles = ` z-[1] shadow-md    top-2/4 -translate-y-2/4 absolute rounded-full min-w-[35px] min-h-[35px]   items-center  hidden  justify-center`;
+const buttonStyles = ` z-[1] shadow-md    top-2/4 -translate-y-2/4 absolute  rounded-full min-w-[35px] min-h-[35px]   items-center  hidden  justify-center`;
 
-const sliderStyles = ` scroll-smooth  overflow-auto flex snap-x  snap-mandatory`;
+const SliderStyles = ` scroll-smooth  overflow-auto flex snap-x  snap-mandatory`;
 
 const Slider = ({
   children,
-  styling,
+  sliderStyles,
+containerStyles ,
+  
   buttonStyling = "bg-white hover:bg-slate-100",
 }) => {
   const slides = useRef();
@@ -46,10 +48,10 @@ const Slider = ({
   }, []);
 
   return (
-    <div className={`  relative w-full`}>
+    <div className={`  relative ${containerStyles} `}>
       <button
         onClick={move}
-        className={`-translate-x-2/4  ${buttonStyling} ${buttonStyles} ${
+        className={` left-0  -translate-x-2/4  ${buttonStyling} ${buttonStyles} ${
           !isPrev ? "hidden" : "xs:flex"
         }`}
       >
@@ -63,7 +65,7 @@ const Slider = ({
       >
         <AiOutlineArrowRight />
       </button>
-      <div ref={slides} className={`${sliderStyles} ${styling}`}>
+      <div ref={slides} className={`  relative  ${sliderStyles} ${SliderStyles} `}>
         {children}
       </div>
     </div>

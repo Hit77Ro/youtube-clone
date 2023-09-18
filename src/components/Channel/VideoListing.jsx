@@ -31,7 +31,7 @@ const VideoListing = ({ data }) => {
         {data.title}
       </h3>
       <div className="hidden xs:block">
-        <Slider styling="py-2">
+        <Slider sliderStyles="py-2">
           {data.data.map((el) => (
             <Slide key={crypto.randomUUID()} styling="xs:p-1 xs:mx-0 mx-1">
               <ChannelVideoCard  item={el} />

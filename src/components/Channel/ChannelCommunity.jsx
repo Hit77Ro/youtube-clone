@@ -1,6 +1,6 @@
 import Loader from "../../utils/Loader";
 import useChannelFetcher from "../../utils/useChannelFetcher";
-import { PostImg, PostMultiImg, PostText, PostVideo } from "../Post";
+import { Post } from "../Post";
 import EmptyMessage from "../Reusable/EmptyMessage";
 
 const ChannelCommnunity = () => {
@@ -15,19 +15,9 @@ const ChannelCommnunity = () => {
         <EmptyMessage message="This channel hasn't posted yet" />
       ) : (
         <div className="flex flex-col gap-5">
-          {data.map((post) =>
-            post?.attachment?.type === "image" ? (
-              <PostImg key={crypto.randomUUID()} item={post} />
-            ) : post?.attachment?.type === "video" ? (
-              <PostVideo key={crypto.randomUUID()} item={post} />
-            ) : !post?.attachment ? (
-              <PostText item={post} key={crypto.randomUUID()} />
-            ) : post?.attachment?.type === "multi_image" ? (
-              <PostMultiImg item={post} key={crypto.randomUUID()} />
-            ) : (
-              ""
-            ),
-          )}
+          {data.map((post) => (
+            <Post item={post} key={crypto.randomUUID()} />
+          ))}
         </div>
       )}
     </>

@@ -93,7 +93,7 @@ const ChannelDetails = () => {
           />
         </div>
       )}
-      <div className={`${styles.paddingX}`}>
+      <div className={` max-w-[1200px] mx-auto ${styles.paddingX}`}>
         <div className={`mt-5  flex  flex-col items-center sm:flex-row`}>
           <div
             className={` max-w-[80px] overflow-hidden rounded-full md:max-w-[100px]  ${styles.flexCenter}`}
@@ -125,7 +125,7 @@ const ChannelDetails = () => {
             )}
           </div>
         </div>
-        <div className="mx-auto my-5 max-w-[90%] md:mx-0">
+        <div className=" my-5">
           <Slider>
             {tabs.map(
               (el) =>
@@ -140,7 +140,9 @@ const ChannelDetails = () => {
           </Slider>
         </div>
 
-        <div className={` relative   min-h-[500px]  py-5`}>
+        <div
+          className={` relative   mx-auto  min-h-[500px] max-w-[1200px]  py-5`}
+        >
           <Outlet />
         </div>
       </div>
