@@ -79,7 +79,7 @@ export const Slide = ({
 }) => {
   return (
     <div
-      className={` max-w-full  shrink-0 snap-center  ${responsive}  ${styling}`}
+      className={` max-w-full  shrink-0 snap-start  ${responsive}  ${styling}`}
     >
       {children}
     </div>
