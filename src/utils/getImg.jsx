@@ -6,7 +6,7 @@ function getImg(images, n) {
       return url;
     }
   }
-  return `https://placehold.co/600x400?text=thumbnail is not available`; // Return null if no valid URL is found
+  return `https://placehold.co/600x400?text=thumbnail`; // Return null if no valid URL is found
 }
 
 export default getImg;

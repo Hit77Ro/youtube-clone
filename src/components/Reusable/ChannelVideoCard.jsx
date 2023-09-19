@@ -51,7 +51,7 @@ const ChannelVideoCard = ({ item, extra, channelTitle, direction }) => {
           </p>
         )}
         {extra?.description && (
-          <p title="form description" className="mt-2 text-xs  text-slate-700">
+          <p title="form description" className="mt-2 break-words text-xs  text-slate-700">
             {" "}
             {extra?.description}{" "}
           </p>

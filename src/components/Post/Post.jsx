@@ -8,7 +8,6 @@ const Post = ({ item }) => {
   const {
     authorText,
     authorChannelId,
-    authorThumbnail: [{ url: url1 }, { url: url2 }, { url: url3 }],
     contentText,
     publishedTimeText,
     voteCountText,
@@ -19,7 +18,7 @@ const Post = ({ item }) => {
       <Link to={`/channel/${authorChannelId}`}>
         <img
           className="max-w-[30px] rounded-full md:max-w-[50px]"
-          src={getImg(item?.authorThumbnail, 2)}
+          src={getImg(item?.authorThumbnail, 3)}
           alt="author avatar"
         />{" "}
       </Link>

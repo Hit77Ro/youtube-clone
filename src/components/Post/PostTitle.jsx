@@ -9,7 +9,9 @@ const PostTitle = ({ title }) => {
     setScrollHeight(collapse.current?.scrollHeight);
   };
   useEffect(() => {
+
     _();
+    console.log("height")
   }, [height, scrollHeight]);
 
   useEffect(() => {
@@ -17,15 +19,13 @@ const PostTitle = ({ title }) => {
   }, []);
   return (
     <div className="p-1">
-      <div
+      <h3
+        className={` overflow-hidden text-justify text-[15px] leading-[1.6] text-slate-900 transition-all  `}
         ref={collapse}
-        className={`my-1 overflow-hidden   text-ellipsis  transition-all `}
-        style={{ maxHeight: isOpen ? scrollHeight : 40 }}
+        style={{ maxHeight: isOpen ? scrollHeight : 1.6*15*5  + 'px' }}
       >
-        <h3 className={` text-justify text-sm text-slate-900 transition-all  `}>
-          {title.split(".").join(".\n")}
-        </h3>
-      </div>
+        {title.split(".").join(".\n")}
+      </h3>
       {scrollHeight > height && (
         <span
           className=" mt-2 block cursor-pointer text-slate-600"
