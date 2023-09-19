@@ -6,20 +6,22 @@ const PostMultiImg = ({ item }) => {
   const { image: imgs } = item.attachment;
   // console.log(image);
   return (
-    <div className="overflow-hidden rounded-2xl">
-      <Slider containerStyles=" max-w-[800px]  mx-auto">
-        {imgs.map((el) => (
+    <div>
+      <Slider
+        containerStyles=" max-w-[700px] mx-auto "
+        sliderStyles="overflow-hidden rounded-xl"
+      >
+        {imgs.map((el, idx) => (
           <Slide
-            responsive=" basis-full max-h-[700px]"
+            styling="relative"
+            responsive="basis-full max-h-[700px]"
             key={crypto.randomUUID()}
           >
-            <img
-              className="object-contain"
-              src={
-                getImg(el,7)
-              }
-              alt=""
-            />
+            <span className="absolute right-2 top-3 rounded-md bg-black px-2 text-sm text-slate-300">
+              {" "}
+              {idx + 1}/{imgs.length}{" "}
+            </span>
+            <img className="object-fill" src={getImg(el, 7)} alt="" />
           </Slide>
         ))}
       </Slider>

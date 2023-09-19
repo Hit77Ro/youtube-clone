@@ -20,7 +20,7 @@ const PostTitle = ({ title }) => {
       <div
         ref={collapse}
         className={`my-1 overflow-hidden   text-ellipsis  transition-all `}
-        style={{ maxHeight: isOpen ? scrollHeight : 50 }}
+        style={{ maxHeight: isOpen ? scrollHeight : 40 }}
       >
         <h3 className={` text-justify text-sm text-slate-900 transition-all  `}>
           {title.split(".").join(".\n")}
