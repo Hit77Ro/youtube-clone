@@ -9,19 +9,23 @@ const PostMultiImg = ({ item }) => {
     <div>
       <Slider
         containerStyles=" max-w-[700px] mx-auto "
-        sliderStyles="overflow-hidden rounded-xl"
+        // sliderStyles="overflow-hidden rounded-xl"
       >
         {imgs.map((el, idx) => (
           <Slide
             styling="relative"
-            responsive="basis-full max-h-[700px]"
+            responsive="basis-[95%] xs:basis-full  mx-2 xs:mx-0 max-h-[700px]"
             key={crypto.randomUUID()}
           >
             <span className="absolute right-2 top-3 rounded-md bg-black px-2 text-sm text-slate-300">
               {" "}
               {idx + 1}/{imgs.length}{" "}
             </span>
-            <img className="object-fill" src={getImg(el, 7)} alt="" />
+            <img
+              className="rounded-xl object-fill"
+              src={getImg(el, 7)}
+              alt=""
+            />
           </Slide>
         ))}
       </Slider>
