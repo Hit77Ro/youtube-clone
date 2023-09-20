@@ -65,9 +65,10 @@ const Navbar = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 type="search"
                 placeholder="Search.."
-                className=" search-input  absolute left-0 h-full w-full flex-1 border border-slate-300 pl-10 pr-11 outline-none placeholder:text-slate-500 focus:border-slate-500"
+                className=" search-input  absolute left-0 h-full w-full flex-1 border border-slate-300 pl-10 pr-4 outline-none placeholder:text-slate-500 focus:border-slate-500"
               />
-              {searchTerm && (
+              {/* clear button */}
+              {/* {searchTerm && (
                 <span
                   role="button"
                   onClick={() => {
@@ -78,7 +79,7 @@ const Navbar = () => {
                 >
                   <BsX />
                 </span>
-              )}
+              )} */}
             </div>
             <button className={`relative bg-gray px-7 ${styles.flexCenter}`}>
               <BsSearch />

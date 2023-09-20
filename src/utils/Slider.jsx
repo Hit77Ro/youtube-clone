@@ -7,8 +7,8 @@ const SliderStyles = ` scroll-smooth  overflow-auto flex snap-x  snap-mandatory`
 const Slider = ({
   children,
   sliderStyles,
-containerStyles ,
-  
+  containerStyles,
+
   buttonStyling = "bg-white hover:bg-slate-100",
 }) => {
   const slides = useRef();
@@ -31,12 +31,13 @@ containerStyles ,
   useEffect(() => {
     const SlideLimit = () => {
       const scrollLeft = slides.current?.scrollLeft;
+      const sliderWidth = slides.current?.offsetWidth;
       const maxScrollLeft =
         slides.current?.scrollWidth - slides.current?.clientWidth;
       setSlideBy(Math.round(slides.current?.offsetWidth));
 
-      setIsNext((_) => scrollLeft + 10 <= maxScrollLeft);
-      setIsPrev((_) => scrollLeft >= 10);
+      setIsNext((_) => scrollLeft + sliderWidth <= maxScrollLeft);
+      setIsPrev((_) => scrollLeft >= sliderWidth);
     };
     SlideLimit();
     slides.current?.addEventListener("scroll", SlideLimit);
@@ -65,7 +66,10 @@ containerStyles ,
       >
         <AiOutlineArrowRight />
       </button>
-      <div ref={slides} className={`  relative  ${sliderStyles} ${SliderStyles} `}>
+      <div
+        ref={slides}
+        className={`  relative  ${sliderStyles} ${SliderStyles} `}
+      >
         {children}
       </div>
     </div>

@@ -9,11 +9,12 @@ export const useStore = () => useContext(StoreProvider);
 export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, {
     isSidebarOpen: false,
-    isSearchbarOpen: false,
     medias: [],
-    isSearching: false,
-    isSearchMode: false,
-    isLoading: true,
+    homeData: {},
+    communityData: {},
+    aboutData: {},
+    videosData: {},
+    channelsData: {},
   });
   return (
     <StoreProvider.Provider value={{ ...state, dispatch, ...Actions }}>
