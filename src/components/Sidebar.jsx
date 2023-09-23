@@ -11,7 +11,7 @@ const Sidebar = () => {
   const [category, setCategory] = useState("home");
   const navigate = useNavigate();
 
-  const { isSidebarOpen, SetMedia, dispatch, ToggleSidebar } = useStore();
+  const { isSidebarOpen, setHero, dispatch, ToggleSidebar } = useStore();
   const barRef = useRef(null);
 
   const handleClick = (name) => {
@@ -25,12 +25,12 @@ const Sidebar = () => {
   });
 
   const dispatcher = (array) => {
-    dispatch({ type: SetMedia, payload: array });
+    dispatch({ type: setHero, payload: array });
   };
   useEffect(() => {
     if (category === "home") {
       FetchApi(`home`).then((d) => {
-        dispatcher(d.data);
+        dispatcher(d);
       });
     } else {
       navigate(`/explore/${category}`);

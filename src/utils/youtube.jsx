@@ -1,5 +1,5 @@
-// Unused functions 
-export const formatNumber = (number) => {
+// Unused functions
+export const formatViews= (number) => {
   if (number < 1000) {
     return number.toString();
   } else if (number < 1000000) {
@@ -9,7 +9,7 @@ export const formatNumber = (number) => {
   } else {
     return (number / 1000000000).toFixed(1) + "B";
   }
-}
+};
 // video duration
 export const setDuration = (seconds) => {
   const hours = Math.floor(seconds / 3600);
@@ -19,3 +19,15 @@ export const setDuration = (seconds) => {
     .toString()
     .padStart(2, "0")}`;
 };
+
+const YtTabs = [
+  "Home",
+  "Videos",
+  "Shorts",
+  "Playlists ",
+  "Community",
+  "Channels",
+  "LiveStreams",
+  "About",
+  "Search",
+];

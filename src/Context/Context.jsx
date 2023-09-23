@@ -9,12 +9,13 @@ export const useStore = () => useContext(StoreProvider);
 export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, {
     isSidebarOpen: false,
-    medias: [],
-    homeData: {},
-    communityData: {},
-    aboutData: {},
-    videosData: {},
-    channelsData: {},
+    homeData: [],
+    shortsData: [],
+    communityData: [],
+    aboutData: [],
+    videosData: [],
+    channelsData: [],
+    heroData: {},
   });
   return (
     <StoreProvider.Provider value={{ ...state, dispatch, ...Actions }}>
@@ -22,3 +23,4 @@ export const ContextProvider = ({ children }) => {
     </StoreProvider.Provider>
   );
 };
+

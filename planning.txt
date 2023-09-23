@@ -1,0 +1,17 @@
+-> Video Card :
+Home => (column)
+        image
+        "channelImage" + videoTitle
+                         channelTitle
+                         views+ publishedDataText
+
+SearchMode
+    => ( row )
+
+        image +  (
+                   videoTitle
+                   views + publishedDateText
+                   channelImage
+                   video Description
+
+                )

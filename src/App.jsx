@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   Sidebar,
-  Home,
+  Hero,
   VideoDetails,
   SearchDetails,
   Navbar,
@@ -10,15 +10,15 @@ import {
 } from "./components";
 import { useStore } from "./Context/Context";
 import {
-  ChannelAbout,
-  ChannelChannels,
-  ChannelHome,
-  ChannelLive,
-  ChannelPlaylists,
-  ChannelShorts,
+  About,
+  Channels,
+  Home,
+  LiveStreams,
+  Playlists,
+  Shorts,
   ChannelVideos,
+  Community,
 } from "./components/Channel";
-import ChannelCommunity from "./components/Channel/ChannelCommunity";
 
 const App = () => {
   const { isSidebarOpen, isSearchMode } = useStore();
@@ -34,26 +34,29 @@ const App = () => {
         <div
           className={`lg:hidden  ${isSidebarOpen ? "overlay active" : ""}`}
         />
-        <div className="max-w-[1600px] mx-auto">
-
-        <Navbar />
-        <Sidebar />
-        <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/explore/:category" exact element={<Explore />} />
-          <Route path="/search/:searchTerm" exact element={<SearchDetails />} />
-          <Route path="/watch/:id" exact element={<VideoDetails />} />
-          <Route path="/channel/:id" exact element={<ChannelDetails />}>
-            <Route path="" element={<ChannelHome />} />
-            <Route path="videos" element={<ChannelVideos />} />
-            <Route path="shorts" element={<ChannelShorts />} />
-            <Route path="playlists" element={<ChannelPlaylists />} />
-            <Route path="channels" element={<ChannelChannels />} />
-            <Route path="live" element={<ChannelLive />} />
-            <Route path="about" element={<ChannelAbout />} />
-            <Route path="community" element={<ChannelCommunity />} />
-          </Route>
-        </Routes>
+        <div className="mx-auto max-w-[1600px]">
+          <Navbar />
+          <Sidebar />
+          <Routes>
+            <Route path="/" exact element={<Hero />} />
+            <Route path="/explore/:category" exact element={<Explore />} />
+            <Route
+              path="/search/:searchTerm"
+              exact
+              element={<SearchDetails />}
+            />
+            <Route path="/watch/:id" exact element={<VideoDetails />} />
+            <Route path="/channel/:id" exact element={<ChannelDetails />}>
+              <Route path="" element={<Home />} />
+              <Route path="videos" element={<ChannelVideos />} />
+              <Route path="shorts" element={<Shorts />} />
+              <Route path="playlists" element={<Playlists />} />
+              <Route path="channels" element={<Channels />} />
+              <Route path="live" element={<LiveStreams />} />
+              <Route path="about" element={<About />} />
+              <Route path="community" element={<Community />} />
+            </Route>
+          </Routes>
         </div>
       </div>
     </Router>

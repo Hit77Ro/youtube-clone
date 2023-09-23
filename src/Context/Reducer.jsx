@@ -1,15 +1,16 @@
 //Reducer.jsx
 export const Actions = {
   ToggleSidebar: "ToggleSidebar",
-  SetMedia: "setMedia",
+  setHero: "setMedia",
   ToggleSearchMode: "toggleSearchMode",
   SetLoader: "setLoader",
-  setChannelVideos: "setChannelVideos",
-  setChannelAbout: "setChannelAbout",
-  setChannelHome: "setChannelHome",
-  setChannelCommunity: "setChannelCommunity",
-  setChannelChannels: "setChannelChannels",
+  setVideos: "setVideos",
+  setAbout: "setAbout",
+  setHome: "setHome",
+  setCommunity: "setCommunity",
+  setChannels: "setChannels",
 };
+
 export default function reducer(state, action) {
   switch (action.type) {
     case Actions.ToggleSidebar:
@@ -17,45 +18,58 @@ export default function reducer(state, action) {
         ...state,
         isSidebarOpen: action.payload,
       };
-    case Actions.SetMedia:
+    case Actions.setHero:
+      const updated = { ...state.heroData };
+
       return {
         ...state,
-        medias: action.payload,
+        heroData: Updater(updated, action),
       };
-    case Actions.setChannelAbout:
+    case Actions.setAbout:
       return {
         ...state,
 
-        aboutData: { ...state.aboutData, ...action.payload },
+        aboutData: [...state.aboutData, ...action.payload],
       };
-    case Actions.setChannelChannels:
+    case Actions.setChannels:
       return {
         ...state,
 
-        channelsData: { ...state.channelsData, ...action.payload },
+        channelsData: [...state.channelsData, ...action.payload],
       };
-    case Actions.setChannelCommunity:
+    case Actions.setCommunity:
       return {
         ...state,
 
-        communityData: { ...state.communityData, ...action.payload },
+        communityData: [...state.communityData, ...action.payload],
       };
-    case Actions.setChannelHome:
+    case Actions.setHome:
       return {
         ...state,
 
-        homeData: { ...state.homeDate, ...action.payload },
+        homeData: [...state.homeDate, ...action.payload],
       };
-    case Actions.setChannelVideos:
+    case Actions.setVideos:
       return {
         ...state,
 
-        videosData: { ...state.videosData, ...action.payload },
+        videosData: [...state.videosData, ...action.payload],
       };
 
     default:
       return state;
   }
 }
-
-console.log
+const Updater = (updatedData, action) => {
+  for (const key in action.payload) {
+    if (action.payload.hasOwnProperty(key)) {
+      if (Array.isArray(action.payload[key])) {
+        updatedData[key] = [
+          ...(updatedData[key] || []),
+          ...action.payload[key],
+        ];
+      }
+    }
+  }
+  return updatedData;
+};
