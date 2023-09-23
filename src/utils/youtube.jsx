@@ -1,5 +1,5 @@
 // Unused functions
-export const formatViews= (number) => {
+export const formatViews = (number) => {
   if (number < 1000) {
     return number.toString();
   } else if (number < 1000000) {
@@ -19,7 +19,12 @@ export const setDuration = (seconds) => {
     .toString()
     .padStart(2, "0")}`;
 };
+export const cutText = (text, n) => {
+  let three = "...";
+  if (text.split(" ").length <= n) three = "";
 
+  return text.split(" ", n).join(" ") + three;
+};
 const YtTabs = [
   "Home",
   "Videos",

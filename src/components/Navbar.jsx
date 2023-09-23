@@ -12,7 +12,7 @@ const Navbar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (searchTerm) navigate(`search/${searchTerm}`);
+    if (searchTerm) navigate(`/search/${searchTerm}`);
   };
 
   useEffect(() => {

@@ -7,7 +7,7 @@ const styles = {
   flexCenter: "flex justify-center items-center",
   flexStart: "flex justify-center items-start",
 
-  paddingX: "md:px-14  sm:px-8 px-5",
+  paddingX: "px-5",
   paddingY: "sm:py-16 py-6",
   padding: "sm:px-16 px-6 sm:py-16 py-6",
 
@@ -29,7 +29,7 @@ export const layout = {
   sectionImg: ``,
 
   sectionInfo: `flex flex-col`,
-  container: `lg:px-[200px] h-full `,
+  container: `max-w-[1400px] mx-auto xs:px-5 h-full `,
 };
 
 export default styles;

@@ -10,7 +10,7 @@ const options = {
 };
 
 // Modify your fetcher function to accept a setLoading callback
-export const FetchApi = async (url) => {
+ const fetcher = async (url) => {
   try {
     const { data } = await axios.get(`${BASE_URL}/${url}`, options);
 
@@ -19,3 +19,6 @@ export const FetchApi = async (url) => {
     throw error;
   }
 };
+
+
+export default fetcher

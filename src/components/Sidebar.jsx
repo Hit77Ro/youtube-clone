@@ -3,7 +3,7 @@ import { useStore } from "../Context/Context";
 import styles from "../style";
 import { categories } from "../utils/constants";
 import Logo from "./Reusable/Logo";
-import { FetchApi } from "../utils/api";
+import { fetcher } from "../utils";
 import { useNavigate } from "react-router-dom";
 import useClickOutside from "../utils/useClickOutside";
 
@@ -29,7 +29,7 @@ const Sidebar = () => {
   };
   useEffect(() => {
     if (category === "home") {
-      FetchApi(`home`).then((d) => {
+      fetcher(`home`).then((d) => {
         dispatcher(d);
       });
     } else {
